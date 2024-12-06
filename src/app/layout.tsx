@@ -1,16 +1,22 @@
 import type { Metadata } from 'next';
-import { Blinker, Open_Sans } from 'next/font/google';
+import { Open_Sans } from 'next/font/google';
 import './globals.css';
 
-const blinker = Blinker({
-  subsets: ['latin'],
-  weight: '700',
-  variable: '--font-blinker',
-});
+// const myFontBlinker = localFont({
+//   src: '',
+//   display: 'swap',
+//   variable: '--font-my-blinker',
+// });
+
+// const blinker = Blinker({
+//   subsets: ['latin'],
+//   weight: ['400', '800'],
+//   variable: '--font-blinker',
+// });
 
 const openSans = Open_Sans({
   subsets: ['cyrillic', 'latin'],
-  weight: ['400', '700'],
+  weight: ['400', '700', '800'],
   variable: '--font-open-sans',
 });
 
@@ -26,9 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${blinker.variable} ${openSans.variable}`}>
-        {children}
-      </body>
+      <body className={`${openSans.variable}`}>{children}</body>
     </html>
   );
 }

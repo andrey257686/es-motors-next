@@ -2,11 +2,13 @@
 import styles from './page.module.scss';
 
 import Header from '@/app/components/Header';
+import Cover from '@/app/components/Cover';
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <Header />
+      <Cover />
     </div>
 
     // <div className={styles.page}>

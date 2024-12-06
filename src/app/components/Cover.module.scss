@@ -1,0 +1,21 @@
+@use '@/app/variables.module.scss';
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+.cover {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: variables.$black-color;
+  color: variables.$white-color;
+  overflow: hidden;
+}
+
+.auto {
+  position: absolute;
+  top: 193px;
+  right: -374px;
+}
+
+.green {
+  color: variables.$green-color;
+}

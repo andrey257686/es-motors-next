@@ -1,0 +1,53 @@
+.typography {
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  font-family: var(--font-open-sans);
+  font-weight: bold;
+  font-size: 52px;
+  letter-spacing: 2%;
+}
+
+.title {
+  font-family: var(--font-open-sans);
+  font-weight: 800;
+  font-size: 160px;
+  letter-spacing: 0;
+}
+
+.header {
+  font-family: var(--font-open-sans);
+  font-weight: bold;
+  font-size: 32px;
+  letter-spacing: 0;
+}
+
+.subtitle {
+  font-family: var(--font-open-sans);
+  font-weight: bold;
+  font-size: 26px;
+  letter-spacing: 0;
+}
+
+.body {
+  font-family: var(--font-open-sans);
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0;
+}
+
+.caption {
+  font-family: var(--font-open-sans);
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0;
+}
+
+.promo {
+  font-family: var(--font-open-sans);
+  font-weight: bold;
+  font-size: 80px;
+  letter-spacing: 6%;
+}
