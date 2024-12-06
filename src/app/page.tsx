@@ -1,11 +1,14 @@
 // import Image from "next/image";
-// import styles from "./page.module.css";
+import styles from './page.module.scss';
 
-import Header from "@/app/components/Header";
+import Header from '@/app/components/Header';
 
 export default function Home() {
   return (
-    <Header />
+    <div className={styles.page}>
+      <Header />
+    </div>
+
     // <div className={styles.page}>
     //   <main className={styles.main}>
     //     <Image

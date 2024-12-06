@@ -1,9 +1,11 @@
+@use '/src/app/variables.module.scss';
+
 .button {
   all: unset;
   padding: 12px 34px;
+  font-family: var(--font-open-sans);
   font-size: 24px;
   font-weight: 400;
-  line-height: 33px;
   cursor: pointer;
   outline: none;
   border-radius: 100px;
@@ -14,19 +16,25 @@
   overflow: hidden;
   background-color: transparent;
   color: white;
-  border: 1px solid white;
+  border: 1px solid variables.$white-color;
   z-index: 1;
-  transition: border 0.3s linear, color 0.3s linear;
+  transition: background-color 0.3s linear, color 0.3s linear,
+    transform 0.1s ease;
 
   &:hover {
+    background-color: variables.$white-color;
     border: 1px solid transparent;
-    color: black;
+    color: variables.$black-color;
   }
 
-  &:hover &_gradient {
-    opacity: 1;
+  &:active {
+    transform: scale(0.97);
   }
 }
+
+// &:hover &_gradient {
+//   opacity: 1;
+// }
 
 // &_gradient {
 //   position: absolute;
