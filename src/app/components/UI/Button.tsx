@@ -7,7 +7,8 @@ import {
 import styles from "./Button.module.scss";
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  typeButton?: "primary" | "secondary" | "tertiary" | "error" | "cancel";
+  typeButton?: "primary" | "secondary" | "outline" | "error" | "cancel";
+  fullwidth?: boolean;
   sx?: CSSProperties;
 }
 

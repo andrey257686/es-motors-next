@@ -1,17 +1,20 @@
 .button {
   all: unset;
-  position: relative;
-  overflow: hidden;
   padding: 12px 34px;
   font-size: 24px;
   font-weight: 400;
   line-height: 33px;
   cursor: pointer;
+  outline: none;
+  border-radius: 100px;
+}
+
+.outline {
+  position: relative;
+  overflow: hidden;
   background-color: transparent;
   color: white;
   border: 1px solid white;
-  outline: none;
-  border-radius: 100px;
   z-index: 1;
   transition: border 0.3s linear, color 0.3s linear;
 

@@ -1,14 +1,16 @@
-import Image from "next/image";
-import Button from "@/app/components/UI/Button";
+import Image from 'next/image';
+import Button from '@/app/components/UI/Button';
 
-import styles from "./Header.module.scss";
+import styles from './Header.module.scss';
 
 export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <a href="/" className={styles.logo}></a>
-        <Button>Каталог товаров</Button>
+        <Button typeButton="outline">
+          Каталог товаров<span className="header__button_gradient"></span>
+        </Button>
         {/* <button className="header__button" aria-label="Каталог товаров">
           Каталог товаров
           <span className="header__button_gradient"></span>
