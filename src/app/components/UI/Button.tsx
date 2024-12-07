@@ -2,19 +2,19 @@ import {
   type ButtonHTMLAttributes,
   forwardRef,
   type CSSProperties,
-} from "react";
+} from 'react';
 
-import styles from "./Button.module.scss";
+import styles from './Button.module.scss';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  typeButton?: "primary" | "secondary" | "outline" | "error" | "cancel";
+  typeButton?: 'primary' | 'secondary' | 'outline' | 'error' | 'cancel';
   fullwidth?: boolean;
   sx?: CSSProperties;
 }
 
 const Button = forwardRef<HTMLButtonElement, Props>(
   (
-    { typeButton = "primary", children, sx, "aria-label": ariaLabel, ...props },
+    { typeButton = 'primary', children, sx, 'aria-label': ariaLabel, ...props },
     ref
   ) => {
     const buttonClass = `${styles.button} ${styles[typeButton]}`;
@@ -28,11 +28,14 @@ const Button = forwardRef<HTMLButtonElement, Props>(
         {...props}
       >
         {children}
+        {typeButton === 'primary' && (
+          <span className={styles.primary_gradient}></span>
+        )}
       </button>
     );
   }
 );
 
-Button.displayName = "Button";
+Button.displayName = 'Button';
 
 export default Button;
