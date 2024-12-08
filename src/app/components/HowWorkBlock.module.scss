@@ -1,0 +1,77 @@
+@use '/src/app/variables.module.scss';
+
+.how_work {
+  position: relative;
+  background-color: variables.$black-color;
+  color: variables.$white-color;
+  padding: 0 100px;
+}
+
+.steps_arrow {
+  position: absolute;
+  top: 245px;
+  left: 102px;
+}
+
+.arrow_right {
+  position: absolute;
+  top: 200px;
+  left: 670px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding-top: 60px;
+}
+
+.step {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+
+  &_number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    font-size: 60px;
+    font-weight: 400;
+    border: 2px solid variables.$green-color;
+    border-radius: 50%;
+  }
+
+  &_description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    width: 580px;
+  }
+}
+
+.step:nth-child(2) {
+  margin-left: 145px;
+}
+
+.step:nth-child(3) {
+  margin-left: 290px;
+}
+
+.step:nth-child(4) {
+  margin-left: 435px;
+}
+
+.request {
+  position: absolute;
+  top: 140px;
+  left: 970px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 850px;
+}

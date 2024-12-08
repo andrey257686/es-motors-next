@@ -3,12 +3,14 @@ import styles from './page.module.scss';
 
 import Cover from '@/app/components/Cover';
 import CatalogBlock from '@/app/components/CatalogBlock';
+import HowWorkBlock from './components/HowWorkBlock';
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <Cover />
       <CatalogBlock />
+      <HowWorkBlock />
     </div>
 
     // <div className={styles.page}>
