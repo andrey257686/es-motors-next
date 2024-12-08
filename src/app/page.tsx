@@ -1,14 +1,14 @@
 // import Image from "next/image";
 import styles from './page.module.scss';
 
-import Header from '@/app/components/Header';
 import Cover from '@/app/components/Cover';
+import CatalogBlock from '@/app/components/CatalogBlock';
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <Header />
       <Cover />
+      <CatalogBlock />
     </div>
 
     // <div className={styles.page}>

@@ -1,0 +1,39 @@
+@use '/src/app/variables.module.scss';
+
+.catalog {
+  background-color: variables.$black-color;
+  padding: 0 100px;
+}
+
+.top_catalog {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.catalog_list {
+  display: grid;
+  grid-auto-rows: 288px;
+  gap: 30px;
+  padding-top: 80px;
+  width: 100%;
+}
+
+.catalog_list > .row:nth-child(odd) {
+  grid-template-columns: 1fr 0.795fr 0.545fr;
+  display: grid;
+  gap: 20px;
+}
+
+// grid-template-columns: 415px 561px 705px;
+
+.catalog_list > .row:nth-child(even) {
+  grid-template-columns: 0.545fr 0.795fr 1fr;
+  display: grid;
+  gap: 20px;
+}
+
+.card {
+  border-radius: 20px;
+  background-color: variables.$green-color;
+}

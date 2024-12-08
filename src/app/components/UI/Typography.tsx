@@ -5,7 +5,7 @@ type TypographyVariant =
   | 'logo'
   | 'title'
   | 'header'
-  | 'subtitle'
+  | 'subheader'
   | 'body'
   | 'caption'
   | 'promo';

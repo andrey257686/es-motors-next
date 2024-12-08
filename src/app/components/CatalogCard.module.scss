@@ -1,0 +1,48 @@
+@use '/src/app/variables.module.scss';
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 10px;
+  background: variables.$gradient-color;
+  padding: 30px 40px;
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+}
+
+.oils {
+  top: -33px;
+  right: -280px;
+  // width: auto;
+  // height: auto;
+  // object-fit: cover;
+}
+
+.tires {
+  right: -50px;
+}
+
+.car_chemistry {
+  top: 0px;
+  right: -280px;
+}
+
+.tools {
+  top: -15px;
+  right: -130px;
+}
+
+.accessories {
+  top: 20px;
+  right: -320px;
+}
+
+.accums {
+  top: 10px;
+  right: -50px;
+}

@@ -1,0 +1,9 @@
+@use '/src/app/variables.module.scss';
+
+.green {
+  color: variables.$green-color;
+}
+
+.white {
+  color: variables.$white-color;
+}

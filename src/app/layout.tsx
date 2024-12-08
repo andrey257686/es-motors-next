@@ -1,18 +1,7 @@
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 import './globals.css';
-
-// const myFontBlinker = localFont({
-//   src: '',
-//   display: 'swap',
-//   variable: '--font-my-blinker',
-// });
-
-// const blinker = Blinker({
-//   subsets: ['latin'],
-//   weight: ['400', '800'],
-//   variable: '--font-blinker',
-// });
+import Header from '@/app/components/Header';
 
 const openSans = Open_Sans({
   subsets: ['cyrillic', 'latin'],
@@ -32,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${openSans.variable}`}>{children}</body>
+      <body className={`${openSans.variable}`}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
