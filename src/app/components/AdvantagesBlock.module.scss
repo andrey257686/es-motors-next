@@ -1,0 +1,49 @@
+@use '/src/app/variables.module.scss';
+
+.advantages {
+  background-color: variables.$black-color;
+  padding: 0 100px;
+
+  &_top {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &_description {
+    color: variables.$white-color;
+  }
+
+  &_list {
+    display: grid;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 80px;
+  }
+
+  &_row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+}
+
+.advantage {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: variables.$gradient-color;
+  padding: 30px 40px;
+  border-radius: 10px;
+
+  &_top {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &_white {
+    background: none;
+    background-color: variables.$white-color;
+  }
+}

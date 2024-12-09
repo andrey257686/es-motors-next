@@ -4,6 +4,7 @@ import { StyledText } from './UI/StyledText';
 import Typography from './UI/Typography';
 import Button from './UI/Button';
 import CatalogCard from './CatalogCard';
+import chunkArray from '../utils/chunkArray';
 
 import oilImage from '../../../public/images/oils.png';
 import tiresImage from '../../../public/images/tires.png';
@@ -88,6 +89,8 @@ const arrayCatalog = [
 ];
 
 export default function CatalogBlock() {
+  const chunkedArray = chunkArray(arrayCatalog, 3);
+
   return (
     <div className={styles.catalog}>
       <div className={styles.top_catalog}>
@@ -97,15 +100,13 @@ export default function CatalogBlock() {
         <Button typeButton="outline">Смореть весь каталог</Button>
       </div>
       <div className={styles.catalog_list}>
-        {arrayCatalog.map((item, idx) =>
-          idx % 3 === 0 ? (
-            <div key={item.id} className={styles.row}>
-              <CatalogCard item={arrayCatalog[idx]}></CatalogCard>
-              <CatalogCard item={arrayCatalog[idx + 1]}></CatalogCard>
-              <CatalogCard item={arrayCatalog[idx + 2]}></CatalogCard>
-            </div>
-          ) : null
-        )}
+        {chunkedArray.map((chunk, idx) => (
+          <div key={`row-${idx}`} className={styles.row}>
+            {chunk.map((item) => (
+              <CatalogCard key={item.id} item={item} />
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

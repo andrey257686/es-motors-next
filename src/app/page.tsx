@@ -4,6 +4,7 @@ import styles from './page.module.scss';
 import Cover from '@/app/components/Cover';
 import CatalogBlock from '@/app/components/CatalogBlock';
 import HowWorkBlock from './components/HowWorkBlock';
+import AdvantagesBlock from './components/AdvatagesBlock';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Cover />
       <CatalogBlock />
       <HowWorkBlock />
+      <AdvantagesBlock />
     </div>
 
     // <div className={styles.page}>
