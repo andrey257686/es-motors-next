@@ -1,0 +1,39 @@
+@use '/src/app/variables.module.scss';
+
+.shopInfo {
+  background-color: variables.$black-color;
+  padding: 0 100px;
+}
+
+.description {
+  &_address {
+    color: variables.$green-color;
+  }
+
+  &_main {
+    color: variables.$white-color;
+
+    & ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    & li {
+      position: relative;
+      padding-left: 38px;
+    }
+
+    & li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      background-color: variables.$green-color;
+      border-radius: 3px;
+    }
+  }
+}

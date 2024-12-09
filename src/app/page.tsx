@@ -5,6 +5,7 @@ import Cover from '@/app/components/Cover';
 import CatalogBlock from '@/app/components/CatalogBlock';
 import HowWorkBlock from './components/HowWorkBlock';
 import AdvantagesBlock from './components/AdvatagesBlock';
+import ShopInfoBlock from './components/ShopInfoBlock';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <CatalogBlock />
       <HowWorkBlock />
       <AdvantagesBlock />
+      <ShopInfoBlock />
     </div>
 
     // <div className={styles.page}>
