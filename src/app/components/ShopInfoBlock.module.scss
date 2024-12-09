@@ -5,12 +5,29 @@
   padding: 0 100px;
 }
 
+.descriptionBlock {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  gap: 20px;
+  padding-top: 80px;
+}
+
 .description {
   &_address {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     color: variables.$green-color;
   }
 
+  &_right {
+    flex: 1;
+  }
+
   &_main {
+    padding-top: 60px;
     color: variables.$white-color;
 
     & ul {
@@ -36,4 +53,8 @@
       border-radius: 3px;
     }
   }
+}
+
+.map {
+  flex: 1;
 }

@@ -4,6 +4,7 @@ import styles from './ShopInfoBlock.module.scss';
 
 import Typography from './UI/Typography';
 import { StyledText } from './UI/StyledText';
+import MapComponent from './MapComponent';
 
 import locationIcon from '../../../public/images/location.svg';
 
@@ -14,53 +15,57 @@ export default function ShopInfoBlock() {
         <StyledText firstWord="ES_" secondWord="ОФЛАЙН МАГАЗИН" />
       </Typography>
       <div className={styles.descriptionBlock}>
-        <div className={styles.description_address}>
-          <Image
-            src={locationIcon}
-            alt="Иконка локации"
-            width={23}
-            height={30}
-          />
-          <Typography variant="subheader">
-            <span className={styles.description_address_text}>
-              г. Воронеж, ул. Ключникова, 2
-            </span>
-          </Typography>
+        <div className={styles.description_right}>
+          <div className={styles.description_address}>
+            <Image
+              src={locationIcon}
+              alt="Иконка локации"
+              width={23}
+              height={30}
+            />
+            <Typography variant="subheader">
+              <span className={styles.description_address_text}>
+                г. Воронеж, ул. Ключникова, 2
+              </span>
+            </Typography>
+          </div>
+          <div className={styles.description_main}>
+            <Typography variant="body">
+              Помимо нашего онлайн-сервиса подбора автозапчастей мы рады видеть
+              вас в нашем офлайн-магазине автозапчастей ES_MOTORS, где вы
+              найдете все необходимое для вашего автомобиля!
+              <br /> <br /> У нас широкий ассортимент запчастей для различных
+              марок и моделей.
+              <br /> <br />В магазине вы сможете:
+              <br /> <br />
+            </Typography>
+            <ul>
+              <li>
+                <Typography variant="body">
+                  ознакомиться с действующим ассортиментом
+                </Typography>
+              </li>
+              <li>
+                <Typography variant="body">
+                  получить личную консультацию специалиста
+                </Typography>
+              </li>
+              <li>
+                <Typography variant="body">
+                  приобрести автозапчасти из наличия
+                </Typography>
+              </li>
+              <li>
+                <Typography variant="body">
+                  оформить заказ на доставку необходимых позиций
+                </Typography>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div className={styles.description_main}>
-          <Typography variant="body">
-            Помимо нашего онлайн-сервиса подбора автозапчастей мы рады видеть
-            вас в нашем офлайн-магазине автозапчастей ES_MOTORS, где вы найдете
-            все необходимое для вашего автомобиля!
-            <br /> <br /> У нас широкий ассортимент запчастей для различных
-            марок и моделей.
-            <br /> <br />В магазине вы сможете:
-            <br /> <br />
-          </Typography>
-          <ul>
-            <li>
-              <Typography variant="body">
-                ознакомиться с действующим ассортиментом
-              </Typography>
-            </li>
-            <li>
-              <Typography variant="body">
-                получить личную консультацию специалиста
-              </Typography>
-            </li>
-            <li>
-              <Typography variant="body">
-                приобрести автозапчасти из наличия
-              </Typography>
-            </li>
-            <li>
-              <Typography variant="body">
-                оформить заказ на доставку необходимых позиций
-              </Typography>
-            </li>
-          </ul>
+        <div className={styles.map}>
+          <MapComponent />
         </div>
-        <div className={styles.map}></div>
       </div>
     </div>
   );
