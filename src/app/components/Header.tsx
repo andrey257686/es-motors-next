@@ -17,7 +17,7 @@ export default function Header() {
         <div className={styles.social}>
           <a href="#" className={styles.icon}>
             <Image
-              src="/images/telegram-logo.png"
+              src="/images/telegram-logo.svg"
               alt="Свяжитесь с нами через Telegram"
               width={30}
               height={30}

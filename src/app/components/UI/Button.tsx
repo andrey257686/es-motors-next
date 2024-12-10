@@ -6,6 +6,13 @@ import {
 
 import styles from './Button.module.scss';
 
+export type ButtonType =
+  | 'primary'
+  | 'secondary'
+  | 'outline'
+  | 'error'
+  | 'cancel';
+
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   typeButton?: 'primary' | 'secondary' | 'outline' | 'error' | 'cancel';
   fullwidth?: boolean;
