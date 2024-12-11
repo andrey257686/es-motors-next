@@ -9,6 +9,8 @@
   background-color: variables.$black-color;
   color: variables.$white-color;
   padding: 10px 0;
+  // z-index: 2;
+  // margin-top: 160px;
 }
 
 .container {
@@ -26,6 +28,7 @@
   left: 0;
   box-shadow: 0 -10px 30px variables.$green-color;
   background: variables.$green-color;
+  z-index: 1;
 }
 
 .logo {

@@ -1,9 +1,8 @@
 @use '/src/app/variables.module.scss';
 
 .header {
-  background-color: variables.$black-color;
+  background-color: variables.$black-color !important;
   height: 77px;
-  // height: 4.5rem;
   display: flex;
   align-items: center;
 }

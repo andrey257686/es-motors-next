@@ -21,7 +21,7 @@ export default function Header() {
           </a>
           <a href="#" className={styles.icon}>
             <Image
-              src="/images/whatsapp-logo.png"
+              src="/images/whatsapp-logo.svg"
               alt="Свяжитесь с нами через WhatsApp"
               width={30}
               height={30}
