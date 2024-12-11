@@ -1,0 +1,138 @@
+@use '/src/app/variables.module.scss';
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 60px;
+  background-color: variables.$black-color;
+  color: variables.$white-color;
+  padding: 10px 0;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 100px;
+  flex-wrap: wrap;
+}
+
+.line {
+  width: 100vw;
+  height: 25px;
+  left: 0;
+  box-shadow: 0 -10px 30px variables.$green-color;
+  background: variables.$green-color;
+}
+
+.logo {
+  display: inline-block;
+  width: 266px;
+  height: 47px;
+  background: url(/images/es-motors-logo.svg) no-repeat center;
+  background-size: cover;
+}
+
+.working_hours {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  &_description {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &_lists {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  & ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  & li {
+    position: relative;
+    padding-left: 38px;
+    height: 12px;
+    line-height: 12px;
+  }
+
+  & li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+  }
+
+  &_address {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+
+.list_white {
+  & li::before {
+    background-color: variables.$white-color;
+  }
+}
+
+.list_green {
+  & li {
+    height: 27px;
+    line-height: 27px;
+  }
+  & li::before {
+    background-color: variables.$green-color;
+  }
+}
+
+.catalog {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  & ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+}
+
+.feedback_form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.copyright {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: variables.$gray-color;
+  margin-top: 50px;
+  flex: 1;
+
+  & a {
+    text-decoration: underline;
+  }
+}

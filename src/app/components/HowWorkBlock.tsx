@@ -74,7 +74,7 @@ export default function HowWorkBlock() {
       </div>
       <div className={styles.request}>
         <Image
-          src="/images/telegram-logo-big.svg"
+          src="/images/telegram-logo.svg"
           alt="Свяжитесь с нами через Telegram"
           width={80}
           height={80}

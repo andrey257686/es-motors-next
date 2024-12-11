@@ -10,11 +10,12 @@ export type ButtonType =
   | 'primary'
   | 'secondary'
   | 'outline'
+  | 'primary_accent'
   | 'error'
   | 'cancel';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  typeButton?: 'primary' | 'secondary' | 'outline' | 'error' | 'cancel';
+  typeButton?: ButtonType;
   fullwidth?: boolean;
   sx?: CSSProperties;
 }
@@ -35,9 +36,12 @@ const Button = forwardRef<HTMLButtonElement, Props>(
         {...props}
       >
         {children}
-        {typeButton === 'primary' && (
+        {(typeButton === 'primary' && (
           <span className={styles.primary_gradient}></span>
-        )}
+        )) ||
+          (typeButton === 'primary_accent' && (
+            <span className={styles.primary_accent_gradient}></span>
+          ))}
       </button>
     );
   }

@@ -10,10 +10,6 @@ export default function Header() {
       <div className={styles.container}>
         <Link href="/" className={styles.logo}></Link>
         <Button typeButton="outline">Каталог товаров</Button>
-        {/* <button className="header__button" aria-label="Каталог товаров">
-          Каталог товаров
-          <span className="header__button_gradient"></span>
-        </button> */}
         <div className={styles.social}>
           <a href="#" className={styles.icon}>
             <Image

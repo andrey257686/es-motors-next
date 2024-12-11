@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 import './globals.css';
-import Header from '@/app/components/Header';
-import Footer from '@/app/components/Footer';
+import Header from '@/app/components/UI/Header';
+import Footer from '@/app/components/UI/Footer';
 
 const openSans = Open_Sans({
   subsets: ['cyrillic', 'latin'],

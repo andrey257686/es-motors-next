@@ -39,13 +39,34 @@
   }
 }
 
+.primary_accent {
+  position: relative;
+  overflow: hidden;
+  background-color: variables.$white-color;
+  color: variables.$black-color;
+  z-index: 1;
+
+  &:hover &_gradient {
+    opacity: 0;
+  }
+
+  &_gradient {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background: variables.$gradient-color;
+    transition: opacity 0.3s linear;
+  }
+}
+
 .outline {
-  // position: relative;
-  // overflow: hidden;
   background-color: transparent;
   color: variables.$white-color;
   border: 1px solid variables.$white-color;
-  // z-index: 1;
   transition: background-color 0.3s linear, color 0.3s linear,
     transform 0.1s ease;
 

@@ -7,8 +7,8 @@ import Button from './UI/Button';
 import type { ButtonType } from './UI/Button';
 import Typography from './UI/Typography';
 import styles from './ApplicationForm.module.scss';
-import tgLogo from '../../../public/images/telegram-logo-big.svg';
-import waLogo from '../../../public/images/whatsapp-logo-big.svg';
+import tgLogo from '../../../public/images/telegram-logo.svg';
+import waLogo from '../../../public/images/whatsapp-logo.svg';
 
 interface ApplicationFormProps {
   buttonType?: ButtonType;
