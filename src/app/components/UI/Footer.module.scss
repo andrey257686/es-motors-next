@@ -130,7 +130,8 @@
   justify-content: space-between;
   color: variables.$gray-color;
   margin-top: 50px;
-  flex: 1;
+  flex-grow: 1;
+  flex-wrap: wrap;
 
   & a {
     text-decoration: underline;
