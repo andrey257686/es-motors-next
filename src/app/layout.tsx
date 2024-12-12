@@ -3,6 +3,8 @@ import { Open_Sans } from 'next/font/google';
 import './globals.css';
 import Header from '@/app/components/UI/Header';
 import Footer from '@/app/components/UI/Footer';
+import { ModalProvider } from '@/app/components/UI/Modal/ModalContext';
+import { GlobalModal } from '@/app/components/UI/Modal/GlobalModal';
 
 const openSans = Open_Sans({
   subsets: ['cyrillic', 'latin'],
@@ -22,10 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${openSans.variable}`}>
-        <Header />
-        {children}
-        <Footer />
+      <body id="root" className={`${openSans.variable}`}>
+        <ModalProvider>
+          <GlobalModal />
+          <Header />
+          {children}
+          <Footer />
+        </ModalProvider>
       </body>
     </html>
   );

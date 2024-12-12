@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '@/app/components/UI/Button';
-
 import styles from './Header.module.scss';
 
 export default function Header() {

@@ -1,0 +1,26 @@
+.feedbackModal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  gap: 20px;
+  width: 100%;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+
+  & img {
+    position: absolute;
+    right: 0;
+    bottom: -60px;
+  }
+}
+
+.form {
+  flex: 1;
+}

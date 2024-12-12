@@ -6,6 +6,7 @@ import CatalogBlock from '@/app/components/CatalogBlock';
 import HowWorkBlock from './components/HowWorkBlock';
 import AdvantagesBlock from './components/AdvatagesBlock';
 import ShopInfoBlock from './components/ShopInfoBlock';
+import ModalClientTimer from './components/UI/Modal/ModalClientTimer';
 
 import backgroundSpiralRed from '../../public/images/background-spiral-red.svg';
 import backgroundSpiralGreen from '../../public/images/background-spiral-green.svg';
@@ -44,6 +45,7 @@ export default function Home() {
       <HowWorkBlock />
       <AdvantagesBlock />
       <ShopInfoBlock />
+      <ModalClientTimer />
     </div>
   );
 }
