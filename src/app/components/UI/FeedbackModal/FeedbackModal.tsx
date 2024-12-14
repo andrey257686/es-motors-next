@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import styles from './FeedbackModal.module.scss';
 
-import ApplicationForm from '@/app/components/features/ApplicationForm';
+import ApplicationForm from '@/app/components/UI/ApplicationForm/ApplicationForm';
 import Typography from '@/app/components/UI/Typography/Typography';
 
 export default function FeedbackModal() {

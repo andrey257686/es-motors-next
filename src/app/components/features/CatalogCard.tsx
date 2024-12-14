@@ -1,25 +1,27 @@
 import { forwardRef } from 'react';
 
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 
 import styles from './CatalogCard.module.scss';
 import Typography from '../UI/Typography/Typography';
 
-type ItemType = {
-  id: number;
-  name: string;
-  nameEn: string;
-  brands: string[];
-  image: {
-    src: string;
-    width: number;
-    height: number;
-  };
-  imagePNG: StaticImageData;
-};
+import { CatalogItem } from '@/app/components/features/CatalogBlock';
+
+// type ItemType = {
+//   id: number;
+//   name: string;
+//   nameEn: string;
+//   brands: string[];
+//   image: {
+//     src: string;
+//     width: number;
+//     height: number;
+//   };
+//   imagePNG: StaticImageData;
+// };
 
 type CatalogCardProps = {
-  item: ItemType;
+  item: CatalogItem;
 };
 
 const CatalogCard = forwardRef<HTMLDivElement, CatalogCardProps>(
@@ -39,13 +41,6 @@ const CatalogCard = forwardRef<HTMLDivElement, CatalogCardProps>(
           alt={item.name}
           className={`${styles.image} ${styles[`${item.nameEn}`]}`}
         />
-        {/* <Image
-          src={item.image.src}
-          width={item.image.width}
-          height={item.image.height}
-          alt={item.name}
-          className={`${styles.image} ${styles[`${item.nameEn}`]}`}
-        /> */}
       </div>
     );
   }

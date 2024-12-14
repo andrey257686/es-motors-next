@@ -17,22 +17,27 @@ interface TypographyProps extends HTMLAttributes<HTMLElement> {
   sx?: React.CSSProperties;
 }
 
-const Typography = forwardRef<HTMLElement, TypographyProps>(
-  ({ as: Component = 'p', variant, color, sx, children, ...props }, ref) => {
-    const classNames = `${styles.typography} ${variant ? styles[variant] : ''}`;
-
-    return (
-      <Component
-        ref={ref}
-        style={{ color, ...sx }}
-        className={classNames}
-        {...props}
-      >
-        {children}
-      </Component>
-    );
+const Typography = forwardRef<
+  HTMLElement,
+  TypographyProps & {
+    children: React.ReactNode | ((props: TypographyProps) => React.ReactNode);
   }
-);
+>(({ as: Component = 'p', variant, color, sx, children, ...props }, ref) => {
+  const classNames = `${styles.typography} ${variant ? styles[variant] : ''}`;
+
+  return (
+    <Component
+      ref={ref}
+      style={{ color, ...sx }}
+      className={classNames}
+      {...props}
+    >
+      {typeof children === 'function'
+        ? children({ variant, color, sx, ...props })
+        : children}
+    </Component>
+  );
+});
 
 Typography.displayName = 'Typography';
 

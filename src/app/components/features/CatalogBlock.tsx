@@ -12,8 +12,22 @@ import carChemistryImage from '../../../../public/images/car_chemistry.png';
 import toolsImage from '../../../../public/images/tools.png';
 import accessoriesImage from '../../../../public/images/accessories.png';
 import accumsImage from '../../../../public/images/accums.png';
+import { StaticImageData } from 'next/image';
 
-const arrayCatalog = [
+export interface CatalogItem {
+  id: number;
+  name: string;
+  nameEn: string;
+  brands: string[];
+  image: {
+    src: string;
+    width: number;
+    height: number;
+  };
+  imagePNG: StaticImageData;
+}
+
+const arrayCatalog: CatalogItem[] = [
   {
     id: 1,
     name: 'Масла',
@@ -89,7 +103,7 @@ const arrayCatalog = [
 ];
 
 export default function CatalogBlock() {
-  const chunkedArray = chunkArray(arrayCatalog, 3);
+  const chunkedArray = chunkArray<CatalogItem>(arrayCatalog, 3);
 
   return (
     <div className={styles.catalog}>

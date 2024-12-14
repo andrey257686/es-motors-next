@@ -6,7 +6,14 @@ import Typography from '../UI/Typography/Typography';
 import { StyledText } from '../UI/StyledText/StyledText';
 import chunkArray from '../../utils/chunkArray';
 
-const adavantageArray = [
+interface AdvantageItem {
+  id: number;
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const adavantageArray: AdvantageItem[] = [
   {
     id: 1,
     title: 'Широкий ассортимент',
@@ -52,7 +59,7 @@ const adavantageArray = [
 ];
 
 export default function AdvantagesBlock() {
-  const chunkedArray = chunkArray(adavantageArray, 3);
+  const chunkedArray = chunkArray<AdvantageItem>(adavantageArray, 3);
 
   return (
     <div className={styles.advantages}>
