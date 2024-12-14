@@ -9,7 +9,7 @@ export default function ModalClientTimer() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsModalOpen(true);
+      setIsModalOpen(false);
     }, 5000);
 
     return () => clearTimeout(timer);

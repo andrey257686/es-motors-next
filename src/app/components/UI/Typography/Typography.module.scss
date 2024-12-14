@@ -16,6 +16,11 @@
   font-size: 160px;
   letter-spacing: 0;
   line-height: 192px;
+
+  @media (max-width: 1024px) {
+    font-size: 80px;
+    line-height: 110px;
+  }
 }
 
 .header {
@@ -23,6 +28,10 @@
   font-weight: bold;
   font-size: 32px;
   letter-spacing: 0;
+
+  @media (max-width: 1024px) {
+    font-size: 24px;
+  }
 }
 
 .subheader {

@@ -1,22 +1,65 @@
 @use '@/app/styles/variables.module.scss';
 
+@function calculateTop($divider) {
+  @return calc(100vw / #{$divider});
+}
+
+@function calculateRight($divider) {
+  @return calc(100vw / #{$divider});
+}
+
+@function responsive-value($min-width, $max-width, $min-value, $max-value) {
+  $slope: ($max-value - $min-value) / ($max-width - $min-width);
+  $base: $min-value - ($slope * $min-width);
+  @return calc(#{$base} + #{$slope} * 100vw);
+}
+
 .cover {
   display: flex;
   flex-direction: column;
   gap: 100px;
   position: relative;
   width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
   height: 100vh;
-  // background-color: variables.$black-color;
   color: variables.$white-color;
-  overflow: hidden;
-  padding: 100px 100px;
+  padding: 70px 100px;
+
+  @media (max-width: 1024px) {
+    gap: 40px;
+    height: 70vh;
+    padding: 40px 60px;
+  }
+}
+
+.imageContainer {
+  position: absolute;
+  // right: -1100px;
+  // top: -450px;
+  right: calculateRight(-1.745);
+  // top: calculateTop(-4.266);
+  // top: calculateTop(-4);
+  top: responsive-value(1024px, 1920px, -100px, -450px);
+  width: calc(100vw * 1.275);
+  max-width: 2448px;
+  max-height: 1405px;
+  // width: 2448px;
+  // height: 1405px;
+  height: calc(100vw / 1.366);
+
+  @media (max-width: 1024px) {
+    width: 1457px;
+    height: 838px;
+    top: -190px;
+    right: -650px;
+  }
 }
 
 .auto {
-  position: absolute;
-  top: -107px;
-  right: -573px;
+  // position: absolute;
+  // top: -107px;
+  // right: -573px;
 }
 
 .heading {
