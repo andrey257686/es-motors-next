@@ -1,6 +1,6 @@
 'use client';
 
-import { useModal } from './ModalContext';
+import { useModal } from '../../../context/ModalContext';
 import ModalComponent from './ModalComponent';
 
 export function GlobalModal() {

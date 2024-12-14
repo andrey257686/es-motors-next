@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import styles from './page.module.scss';
 
-import Cover from '@/app/components/Cover';
-import CatalogBlock from '@/app/components/CatalogBlock';
-import HowWorkBlock from './components/HowWorkBlock';
-import AdvantagesBlock from './components/AdvatagesBlock';
-import ShopInfoBlock from './components/ShopInfoBlock';
+import Cover from '@/app/components/features/Cover';
+import CatalogBlock from '@/app/components/features/CatalogBlock';
+import HowWorkBlock from './components/features/HowWorkBlock';
+import AdvantagesBlock from './components/features/AdvatagesBlock';
+import ShopInfoBlock from './components/features/ShopInfoBlock';
 import ModalClientTimer from './components/UI/Modal/ModalClientTimer';
 
 import backgroundSpiralRed from '../../public/images/background-spiral-red.svg';

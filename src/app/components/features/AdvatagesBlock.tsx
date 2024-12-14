@@ -2,9 +2,9 @@ import Image from 'next/image';
 
 import styles from './AdvantagesBlock.module.scss';
 
-import Typography from './UI/Typography';
-import { StyledText } from './UI/StyledText';
-import chunkArray from '../utils/chunkArray';
+import Typography from '../UI/Typography/Typography';
+import { StyledText } from '../UI/StyledText/StyledText';
+import chunkArray from '../../utils/chunkArray';
 
 const adavantageArray = [
   {

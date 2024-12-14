@@ -3,12 +3,12 @@ import { CSSProperties, useState } from 'react';
 import { useMask } from '@react-input/mask';
 import Image from 'next/image';
 
-import Button from './UI/Button';
-import type { ButtonType } from './UI/Button';
-import Typography from './UI/Typography';
+import Button from '../UI/Button/Button';
+import type { ButtonType } from '../UI/Button/Button';
+import Typography from '../UI/Typography/Typography';
 import styles from './ApplicationForm.module.scss';
-import tgLogo from '../../../public/images/telegram-logo.svg';
-import waLogo from '../../../public/images/whatsapp-logo.svg';
+import tgLogo from '../../../../public/images/telegram-logo.svg';
+import waLogo from '../../../../public/images/whatsapp-logo.svg';
 
 interface ApplicationFormProps {
   buttonType?: ButtonType;

@@ -1,17 +1,17 @@
 import styles from './CatalogBlock.module.scss';
 
-import { StyledText } from './UI/StyledText';
-import Typography from './UI/Typography';
-import Button from './UI/Button';
+import { StyledText } from '../UI/StyledText/StyledText';
+import Typography from '../UI/Typography/Typography';
+import Button from '../UI/Button/Button';
 import CatalogCard from './CatalogCard';
-import chunkArray from '../utils/chunkArray';
+import chunkArray from '../../utils/chunkArray';
 
-import oilImage from '../../../public/images/oils.png';
-import tiresImage from '../../../public/images/tires.png';
-import carChemistryImage from '../../../public/images/car_chemistry.png';
-import toolsImage from '../../../public/images/tools.png';
-import accessoriesImage from '../../../public/images/accessories.png';
-import accumsImage from '../../../public/images/accums.png';
+import oilImage from '../../../../public/images/oils.png';
+import tiresImage from '../../../../public/images/tires.png';
+import carChemistryImage from '../../../../public/images/car_chemistry.png';
+import toolsImage from '../../../../public/images/tools.png';
+import accessoriesImage from '../../../../public/images/accessories.png';
+import accumsImage from '../../../../public/images/accums.png';
 
 const arrayCatalog = [
   {

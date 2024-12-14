@@ -1,10 +1,10 @@
 import styles from './Cover.module.scss';
 import Image from 'next/image';
 
-import Button from './UI/Button';
-import Typography from './UI/Typography';
-import { StyledText } from './UI/StyledText';
-import coverImage from '../../../public/images/cover-auto-cropped-2.png';
+import Button from '../UI/Button/Button';
+import Typography from '../UI/Typography/Typography';
+import { StyledText } from '../UI/StyledText/StyledText';
+import coverImage from '../../../../public/images/cover-auto-cropped-2.png';
 
 export default function Cover() {
   return (

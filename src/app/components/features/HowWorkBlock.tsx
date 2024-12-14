@@ -1,12 +1,12 @@
 import Image from 'next/image';
 
-import { StyledText } from './UI/StyledText';
-import Typography from './UI/Typography';
-import Button from './UI/Button';
+import { StyledText } from '../UI/StyledText/StyledText';
+import Typography from '../UI/Typography/Typography';
+import Button from '../UI/Button/Button';
 
 import styles from './HowWorkBlock.module.scss';
-import stepsArrowImage from '../../../public/images/steps_arrow2.svg';
-import arrowRight from '../../../public/images/arrow-right.svg';
+import stepsArrowImage from '../../../../public/images/steps_arrow2.svg';
+import arrowRight from '../../../../public/images/arrow-right.svg';
 
 export default function HowWorkBlock() {
   return (

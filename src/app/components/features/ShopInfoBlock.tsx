@@ -2,11 +2,11 @@ import Image from 'next/image';
 
 import styles from './ShopInfoBlock.module.scss';
 
-import Typography from './UI/Typography';
-import { StyledText } from './UI/StyledText';
+import Typography from '../UI/Typography/Typography';
+import { StyledText } from '../UI/StyledText/StyledText';
 import MapComponent from './MapComponent';
 
-import locationIcon from '../../../public/images/location.svg';
+import locationIcon from '../../../../public/images/location.svg';
 
 export default function ShopInfoBlock() {
   return (

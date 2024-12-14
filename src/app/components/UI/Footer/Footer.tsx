@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 import styles from './Footer.module.scss';
 
-import ApplicationForm from '../ApplicationForm';
-import Typography from './Typography';
+import ApplicationForm from '../../features/ApplicationForm';
+import Typography from '../Typography/Typography';
 
 export default function Footer() {
   return (

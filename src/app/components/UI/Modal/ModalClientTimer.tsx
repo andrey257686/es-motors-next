@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import ModalComponent from './ModalComponent';
-import FeedbackModal from '@/app/components/UI/FeedbackModal';
+import FeedbackModal from '@/app/components/UI/FeedbackModal/FeedbackModal';
 
 export default function ModalClientTimer() {
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -1,4 +1,4 @@
-@use './variables.module.scss';
+@use '@/app/styles/variables.module.scss';
 
 .page {
   position: relative;
@@ -16,7 +16,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0; // чтобы фон находился под содержимым
+  z-index: 0;
   overflow: hidden;
 }
 
@@ -24,19 +24,16 @@
   position: absolute;
   bottom: -300px;
   left: -1300px;
-  // z-index: -2;
 }
 
 .backgroundSpiralGreen {
   position: absolute;
   top: 0px;
   right: -1100px;
-  // z-index: -2;
 }
 
 .glare {
   position: absolute;
-  // z-index: -2;
 
   &_green {
     filter: blur(500px);

@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import Image, { StaticImageData } from 'next/image';
 
 import styles from './CatalogCard.module.scss';
-import Typography from './UI/Typography';
+import Typography from '../UI/Typography/Typography';
 
 type ItemType = {
   id: number;
