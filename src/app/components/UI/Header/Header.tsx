@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Link href="/" className={styles.logo}></Link>
+        <Link aria-hidden="true" href="/" className={styles.logo}></Link>
         <Button typeButton="outline">Каталог товаров</Button>
         <div className={styles.social}>
           <a href="#" className={styles.icon}>

@@ -7,19 +7,6 @@ import Typography from '../UI/Typography/Typography';
 
 import { CatalogItem } from '@/app/components/features/CatalogBlock';
 
-// type ItemType = {
-//   id: number;
-//   name: string;
-//   nameEn: string;
-//   brands: string[];
-//   image: {
-//     src: string;
-//     width: number;
-//     height: number;
-//   };
-//   imagePNG: StaticImageData;
-// };
-
 type CatalogCardProps = {
   item: CatalogItem;
 };

@@ -12,7 +12,7 @@ export default function Footer() {
       <div className={styles.line}></div>
       <div className={styles.container}>
         <div className={styles.working_hours}>
-          <Link href="/" className={styles.logo}></Link>
+          <Link aria-hidden="true" href="/" className={styles.logo}></Link>
           <div className={styles.working_hours_description}>
             <Typography variant="subheader">
               Режим работы
@@ -55,22 +55,34 @@ export default function Footer() {
           <Typography variant="subheader">КАТАЛОГ</Typography>
           <ul>
             <li>
-              <Link href="/#">Автохимия</Link>
+              <Link aria-hidden="true" href="/#">
+                Автохимия
+              </Link>
             </li>
             <li>
-              <Link href="/#">Аккумуляторы</Link>
+              <Link aria-hidden="true" href="/#">
+                Аккумуляторы
+              </Link>
             </li>
             <li>
-              <Link href="/#">Аксессуары</Link>
+              <Link aria-hidden="true" href="/#">
+                Аксессуары
+              </Link>
             </li>
             <li>
-              <Link href="/#">Диски</Link>
+              <Link aria-hidden="true" href="/#">
+                Диски
+              </Link>
             </li>
             <li>
-              <Link href="/#">Масла</Link>
+              <Link aria-hidden="true" href="/#">
+                Масла
+              </Link>
             </li>
             <li>
-              <Link href="/#">Шины</Link>
+              <Link aria-hidden="true" href="/#">
+                Шины
+              </Link>
             </li>
           </ul>
         </div>
@@ -85,10 +97,14 @@ export default function Footer() {
           <Typography variant="caption">ИНН 366229717204</Typography>
           <Typography variant="caption">ОГРН 322366800002694</Typography>
           <Typography variant="caption">
-            <Link href="#">Политика конфиденциальности</Link>
+            <Link aria-hidden="true" href="#">
+              Политика конфиденциальности
+            </Link>
           </Typography>
           <Typography variant="caption">
-            <Link href="#">Пользовательское соглашение</Link>
+            <Link aria-hidden="true" href="#">
+              Пользовательское соглашение
+            </Link>
           </Typography>
         </div>
       </div>

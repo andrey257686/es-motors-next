@@ -20,7 +20,13 @@ export default function Cover() {
       <div>
         <Button typeButton="primary">Оставить заявку на подбор</Button>
       </div>
-      <Image src={coverImage} className={styles.auto} alt="Автомобиль" />
+      <Image
+        src={coverImage}
+        className={styles.auto}
+        loading="eager"
+        placeholder="blur"
+        alt="Автомобиль"
+      />
     </div>
   );
 }

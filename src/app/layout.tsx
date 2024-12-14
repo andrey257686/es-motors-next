@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body id="root" className={`${openSans.variable}`}>
+      <body aria-hidden="false" id="root" className={`${openSans.variable}`}>
         <ModalProvider>
           <Header />
           {children}

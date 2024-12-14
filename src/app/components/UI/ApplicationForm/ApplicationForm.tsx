@@ -1,5 +1,5 @@
 'use client';
-import { ChangeEvent, CSSProperties, FormEvent, useState } from 'react';
+import { ChangeEvent, CSSProperties, FormEvent, memo, useState } from 'react';
 import { useMask } from '@react-input/mask';
 import Image from 'next/image';
 
@@ -98,6 +98,7 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
             id="fullName"
             name="fullName"
             type="text"
+            aria-label="ФИО"
             value={formData.fullName}
             onChange={handleChange}
             placeholder="ФИО"
@@ -111,6 +112,7 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
             id="phoneNumber"
             name="phoneNumber"
             type="tel"
+            aria-label="Номер телефона"
             ref={inputPhoneRef}
             value={formData.phoneNumber}
             onChange={handleChange}
@@ -123,6 +125,7 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
           <textarea
             id="request"
             name="request"
+            aria-label="Запрос"
             value={formData.request}
             onChange={handleChange}
             placeholder="Кратко опишите свой запрос..."
@@ -173,4 +176,4 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
   );
 }
 
-export default ApplicationForm;
+export default memo(ApplicationForm);
