@@ -1,15 +1,16 @@
 'use client';
 
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
+import styles from './MapComponent.module.scss';
 
 export default function MapComponent() {
   const mapCenter = [51.568884, 39.122646];
-  const mapStyle = {
-    width: '100%',
-    height: '100%',
-    borderRadius: '10px',
-    overflow: 'hidden',
-  };
+  // const mapStyle = {
+  //   width: '100%',
+  //   height: '100%',
+  //   borderRadius: '10px',
+  //   overflow: 'hidden',
+  // };
 
   const placemarkOptions = {
     iconLayout: 'default#image',
@@ -20,7 +21,10 @@ export default function MapComponent() {
 
   return (
     <YMaps query={{ apikey: process.env.YANDEX_API_KEY }}>
-      <Map defaultState={{ center: mapCenter, zoom: 17 }} style={mapStyle}>
+      <Map
+        defaultState={{ center: mapCenter, zoom: 17 }}
+        className={styles.map}
+      >
         <Placemark geometry={mapCenter} options={placemarkOptions} />
       </Map>
     </YMaps>
