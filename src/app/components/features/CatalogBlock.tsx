@@ -111,7 +111,7 @@ export default function CatalogBlock() {
         <Typography variant="logo">
           <StyledText firstWord="ES_" secondWord="КАТАЛОГ ТОВАРОВ" />
         </Typography>
-        <Button typeButton="outline">Смореть весь каталог</Button>
+        <Button typeButton="outline">Смотреть весь каталог</Button>
       </div>
       <div className={styles.catalog_list}>
         {chunkedArray.map((chunk, idx) => (

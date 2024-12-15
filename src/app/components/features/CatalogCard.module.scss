@@ -9,40 +9,162 @@
   background: variables.$gradient-color;
   padding: 30px 40px;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 20px 20px;
+  }
 }
 
 .image {
   position: absolute;
 }
 
+.brands {
+  z-index: 1;
+}
+
 .oils {
   top: -33px;
   right: -280px;
-  // width: auto;
-  // height: auto;
-  // object-fit: cover;
+
+  @media (max-width: 1680px) {
+    width: 448px;
+    height: 245px;
+    top: 50px;
+    right: -200px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 350px;
+    height: auto;
+    top: 50px;
+    right: -175px;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+    height: auto;
+    top: 50px;
+    right: -100px;
+  }
+
+  @media (max-width: 479px) {
+    display: none;
+  }
 }
 
 .tires {
   right: -50px;
+
+  @media (max-width: 1680px) {
+    width: 100%;
+    height: auto;
+    top: 50px;
+  }
+
+  @media (max-width: 768px) {
+    top: 0px;
+  }
+
+  @media (max-width: 479px) {
+    display: none;
+  }
 }
 
 .car_chemistry {
   top: 0px;
   right: -280px;
+
+  @media (max-width: 1024px) {
+    width: 130%;
+    height: auto;
+    top: 50px;
+    right: -100px;
+  }
+
+  @media (max-width: 768px) {
+    top: -10px;
+    right: -100px;
+  }
+
+  @media (max-width: 479px) {
+    display: none;
+  }
 }
 
 .tools {
   top: -15px;
   right: -130px;
+
+  @media (max-width: 1024px) {
+    width: 130%;
+    height: auto;
+    top: 0px;
+    right: -150px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    top: -20px;
+    right: -100px;
+  }
+
+  @media (max-width: 479px) {
+    display: none;
+  }
 }
 
 .accessories {
   top: 20px;
   right: -320px;
+
+  @media (max-width: 1680px) {
+    width: 100%;
+    height: auto;
+    top: 50px;
+    right: -150px;
+  }
+
+  @media (max-width: 1024px) {
+    top: 70px;
+    right: -120px;
+  }
+
+  @media (max-width: 768px) {
+    top: 30px;
+  }
+
+  @media (max-width: 479px) {
+    display: none;
+  }
 }
 
 .accums {
   top: 10px;
   right: -50px;
+
+  @media (max-width: 1680px) {
+    width: 300px;
+    height: auto;
+    top: 50px;
+    right: -100px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 200px;
+    height: auto;
+    top: 70px;
+    right: -50px;
+  }
+
+  @media (max-width: 768px) {
+    width: 150px;
+    height: auto;
+    top: 70px;
+    right: -50px;
+  }
+
+  @media (max-width: 479px) {
+    display: none;
+  }
 }

@@ -75,7 +75,7 @@ export default function HowWorkBlock() {
         />
         <Button
           typeButton="outline"
-          style={{ width: '100%', textAlign: 'center' }}
+          style={{ width: '70%', textAlign: 'center' }}
         >
           Заявка в 1 клик
         </Button>
