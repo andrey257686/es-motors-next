@@ -22,10 +22,22 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = forwardRef<HTMLButtonElement, Props>(
   (
-    { typeButton = 'primary', children, sx, 'aria-label': ariaLabel, ...props },
+    {
+      typeButton = 'primary',
+      fullwidth = false,
+      children,
+      sx,
+      'aria-label': ariaLabel,
+      className = '',
+      ...props
+    },
     ref
   ) => {
-    const buttonClass = `${styles.button} ${styles[typeButton]}`;
+    const buttonClass = `${styles.button} ${styles[typeButton]} ${
+      fullwidth && styles.fullwidth
+    } ${className}`;
+
+    console.log(className);
 
     return (
       <button
