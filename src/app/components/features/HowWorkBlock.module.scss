@@ -2,9 +2,10 @@
 
 .how_work {
   position: relative;
-  // background-color: variables.$black-color;
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
   color: variables.$white-color;
-  // padding: 0 100px;
 }
 
 .steps_arrow {
