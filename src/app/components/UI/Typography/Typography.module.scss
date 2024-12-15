@@ -17,9 +17,34 @@
   letter-spacing: 0;
   line-height: 192px;
 
+  @media (max-width: 1568px) {
+    font-size: 120px;
+    line-height: 144px;
+  }
+
+  @media (max-width: 1280px) {
+    font-size: 100px;
+    line-height: 120px;
+  }
+
   @media (max-width: 1024px) {
     font-size: 80px;
     line-height: 110px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 70px;
+    line-height: 90px;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 44px;
+    line-height: 50px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 32px;
+    line-height: 40px;
   }
 }
 
@@ -31,6 +56,14 @@
 
   @media (max-width: 1024px) {
     font-size: 24px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
   }
 }
 
