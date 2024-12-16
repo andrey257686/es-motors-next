@@ -10,3 +10,8 @@ $green-color: #bbd708;
 
 // style-effects
 $gradient-color: linear-gradient(142.26deg, #bbd708 2.588%, #ddff00 124.798%);
+
+@mixin glass-effect {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(50px);
+}

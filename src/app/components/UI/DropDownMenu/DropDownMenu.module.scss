@@ -1,0 +1,45 @@
+@use '@/app/styles/variables.module.scss';
+
+.dropdownMenu {
+  position: relative;
+}
+
+.menu {
+  @include variables.glass-effect;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 8px;
+  padding: 40px 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+}
+
+.menu li {
+  padding: 0 50px;
+  white-space: nowrap;
+
+  &:hover {
+    & a {
+      color: variables.$green-color;
+    }
+  }
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: variables.$white-color;
+  transition: color 0.3s ease-in-out;
+}
