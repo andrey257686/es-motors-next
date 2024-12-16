@@ -7,6 +7,7 @@ import HowWorkBlock from './components/features/HowWorkBlock';
 import AdvantagesBlock from './components/features/AdvatagesBlock';
 import ShopInfoBlock from './components/features/ShopInfoBlock';
 import ModalClientTimer from './components/UI/Modal/ModalClientTimer';
+import ChatButton from './components/UI/ChatButton/ChatButton';
 
 import backgroundSpiralRed from '../../public/images/background-spiral-red.svg';
 import backgroundSpiralGreen from '../../public/images/background-spiral-green.svg';
@@ -46,6 +47,7 @@ export default function Home() {
       <AdvantagesBlock />
       <ShopInfoBlock />
       <ModalClientTimer />
+      <ChatButton />
     </div>
   );
 }
