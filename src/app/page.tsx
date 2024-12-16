@@ -11,6 +11,7 @@ import ChatButton from './components/UI/ChatButton/ChatButton';
 
 import backgroundSpiralRed from '../../public/images/background-spiral-red.svg';
 import backgroundSpiralGreen from '../../public/images/background-spiral-green.svg';
+import { GlobalModal } from './components/UI/Modal/GlobalModal';
 
 export default function Home() {
   return (
@@ -46,6 +47,7 @@ export default function Home() {
       <HowWorkBlock />
       <AdvantagesBlock />
       <ShopInfoBlock />
+      <GlobalModal />
       <ModalClientTimer />
       <ChatButton />
     </div>

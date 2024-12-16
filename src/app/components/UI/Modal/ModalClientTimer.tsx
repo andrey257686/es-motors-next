@@ -1,25 +1,29 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import ModalComponent from './ModalComponent';
+import { useEffect, useRef, useState } from 'react';
+// import ModalComponent from './ModalComponent';
 import FeedbackModal from '@/app/components/UI/FeedbackModal/FeedbackModal';
 
+import { useModal } from '../../../context/ModalContext';
+
 export default function ModalClientTimer() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isOpen, openModal, setContent } = useModal(); // Используем контекст
+  const hasOpened = useRef(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsModalOpen(false);
-    }, 5000);
+    // if (isOpen) return;
+    // if (!isOpen) {
+    if (!hasOpened.current) {
+      const timer = setTimeout(() => {
+        setContent(<FeedbackModal />); // Устанавливаем содержимое модального окна
+        hasOpened.current = true;
+        openModal(); // Открываем модальное окно
+      }, 5000); // Открыть через 5 секунд
 
-    return () => clearTimeout(timer);
-  }, []);
+      return () => clearTimeout(timer);
+    }
+  }, [openModal, setContent]);
 
-  const closeModal = () => setIsModalOpen(false);
-
-  return (
-    <ModalComponent isOpen={isModalOpen} onClose={closeModal}>
-      <FeedbackModal />
-    </ModalComponent>
-  );
+  return null;
 }
