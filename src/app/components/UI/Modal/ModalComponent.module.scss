@@ -10,25 +10,51 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0.4s;
   z-index: 1000;
+}
+
+.modal_overlay_open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal_overlay_close {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .modal_content {
   background: variables.$gradient-color;
-  padding: 50px 60px;
   border-radius: 8px;
-  position: relative;
+  padding: 50px 60px;
   max-width: 1200px;
   width: 100%;
   outline: none;
+  opacity: 0;
+  transform: scale(0) translate(100%, 100%);
+  transform-origin: calc(100vw + 20px) calc(100vh + 20px);
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-.close_button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
+.modal_content_open {
+  transform: scale(1) translate(0, 0);
+  opacity: 1;
 }
+
+.modal_content_close {
+  transform: scale(0) translate(100%, 100%);
+  opacity: 0;
+}
+
+// .close_button {
+//   position: absolute;
+//   top: 10px;
+//   right: 10px;
+//   background: none;
+//   border: none;
+//   font-size: 20px;
+//   cursor: pointer;
+// }

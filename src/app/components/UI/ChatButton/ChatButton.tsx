@@ -1,31 +1,23 @@
 'use client';
+import Image from 'next/image';
 
 import styles from './ChatButton.module.scss';
-import ModalComponent from '../Modal/ModalComponent';
 import FeedbackModal from '@/app/components/UI/FeedbackModal/FeedbackModal';
-import { useState } from 'react';
+import { useModal } from '@/app/context/ModalContext';
 
 function ChatButton() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isOpen, openModal, setContent } = useModal();
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const handleClick = () => {
+    if (isOpen) return;
+    setContent(<FeedbackModal />);
+    openModal();
   };
 
   return (
-    <>
-      <button onClick={openModal} className={styles.chatButton}>
-        ЧАТ
-      </button>
-
-      <ModalComponent isOpen={isModalOpen} onClose={closeModal}>
-        <FeedbackModal />
-      </ModalComponent>
-    </>
+    <button onClick={handleClick} className={styles.chatButton}>
+      <Image src="/images/chat-icon.svg" alt="Чат" width={40} height={33} />
+    </button>
   );
 }
 
