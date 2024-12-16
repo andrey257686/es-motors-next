@@ -1,44 +1,9 @@
-// 'use client';
-
-// import { ReactNode } from 'react';
-// import Modal from 'react-modal';
-
-// import styles from './ModalComponent.module.scss';
-
-// Modal.setAppElement('#root');
-
-// interface ModalProps {
-//   isOpen: boolean;
-//   onClose: () => void;
-//   children: ReactNode;
-// }
-
-// export default function ModalComponent({
-//   isOpen,
-//   onClose,
-//   children,
-// }: ModalProps) {
-//   return (
-//     <Modal
-//       isOpen={isOpen}
-//       onRequestClose={onClose}
-//       overlayClassName={styles.modal_overlay}
-//       className={styles.modal_content}
-//       contentLabel="Modal"
-//     >
-//       {children}
-//     </Modal>
-//   );
-// }
-
 'use client';
 
 import { ReactNode } from 'react';
 import Modal from 'react-modal';
-
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './ModalComponent.module.scss';
-
-Modal.setAppElement('#root');
 
 interface ModalProps {
   isOpen: boolean;
@@ -46,29 +11,54 @@ interface ModalProps {
   children: ReactNode;
 }
 
+Modal.setAppElement('#root');
+
 export default function ModalComponent({
   isOpen,
   onClose,
   children,
 }: ModalProps) {
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      overlayClassName={{
-        base: styles.modal_overlay,
-        afterOpen: styles.modal_overlay_open,
-        beforeClose: styles.modal_overlay_close,
-      }}
-      className={{
-        base: styles.modal_content,
-        afterOpen: styles.modal_content_open,
-        beforeClose: styles.modal_content_close,
-      }}
-      closeTimeoutMS={400}
-      contentLabel="Modal"
-    >
-      {children}
-    </Modal>
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className={styles.modal_overlay}
+          initial={{ opacity: 0, backgroundColor: 'rgba(0, 0, 0, 0)' }}
+          animate={{ opacity: 1, backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+          exit={{ opacity: 0, backgroundColor: 'rgba(0, 0, 0, 0)' }}
+          transition={{ duration: 0.4, ease: 'easeInOut' }}
+          onClick={onClose}
+        >
+          <motion.div
+            className={styles.modal_content}
+            onClick={(e) => e.stopPropagation()}
+            initial={{
+              opacity: 0,
+              scale: 0,
+              x: 'calc(100vw - 20px)',
+              y: 'calc(100vh - 20px)',
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              x: 0,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              scale: 0,
+              x: 'calc(100vw - 20px)',
+              y: 'calc(100vh - 20px)',
+            }}
+            transition={{
+              duration: 0.4,
+              ease: 'easeInOut',
+            }}
+          >
+            {children}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

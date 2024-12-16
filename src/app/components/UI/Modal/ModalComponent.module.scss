@@ -6,47 +6,18 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s, visibility 0.4s;
-  z-index: 1000;
-}
-
-.modal_overlay_open {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal_overlay_close {
-  opacity: 0;
-  visibility: hidden;
+  z-index: 10;
 }
 
 .modal_content {
   background: variables.$gradient-color;
   border-radius: 8px;
-  padding: 50px 60px;
   max-width: 1200px;
-  width: 100%;
+  width: 80%;
   outline: none;
-  opacity: 0;
-  transform: scale(0) translate(100%, 100%);
-  transform-origin: calc(100vw + 20px) calc(100vh + 20px);
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.modal_content_open {
-  transform: scale(1) translate(0, 0);
-  opacity: 1;
-}
-
-.modal_content_close {
-  transform: scale(0) translate(100%, 100%);
-  opacity: 0;
 }
 
 // .close_button {

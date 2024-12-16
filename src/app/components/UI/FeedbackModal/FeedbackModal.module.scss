@@ -5,6 +5,15 @@
   align-items: start;
   gap: 20px;
   width: 100%;
+  padding: 50px 60px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 480px) {
+    padding: 30px 20px;
+  }
 }
 
 .content {
@@ -18,9 +27,14 @@
     position: absolute;
     right: 0;
     bottom: -60px;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
   }
 }
 
 .form {
   flex: 1;
+  width: 100%;
 }

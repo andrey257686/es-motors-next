@@ -84,6 +84,13 @@
   gap: 10px;
   padding-left: 1px;
   cursor: pointer;
+
+  & img {
+    @media (max-width: 768px) {
+      width: 30px;
+      height: 30px;
+    }
+  }
 }
 
 .checkBox {
