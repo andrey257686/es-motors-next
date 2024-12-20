@@ -30,9 +30,24 @@ export default function DropDownMenu() {
 
   return (
     <div className={styles.dropdownMenu} ref={menuRef}>
-      <Button typeButton="outline" onClick={toggleMenu}>
+      <Button
+        className={styles.dropdownMenu_button}
+        typeButton="outline"
+        onClick={toggleMenu}
+      >
         Каталог товаров
       </Button>
+      <label className={styles.dropdownMenu_burger}>
+        <input type="checkbox" checked={isMenuOpen} onChange={toggleMenu} />
+        <div className={styles.dropdownMenu_burger_checkmark}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </label>
+      {/* <button className={styles.dropdownMenu_burger} onClick={toggleMenu}>
+        burger
+      </button> */}
       {isMenuOpen && (
         <div className={styles.menu}>
           <ul>

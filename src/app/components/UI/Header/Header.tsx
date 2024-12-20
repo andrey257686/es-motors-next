@@ -16,16 +16,18 @@ export default function Header() {
             <Image
               src="/images/telegram-logo.svg"
               alt="Свяжитесь с нами через Telegram"
-              width={30}
-              height={30}
+              fill={true}
+              // width={30}
+              // height={30}
             />
           </a>
           <a href="#" className={styles.icon}>
             <Image
               src="/images/whatsapp-logo.svg"
               alt="Свяжитесь с нами через WhatsApp"
-              width={30}
-              height={30}
+              fill={true}
+              // width={30}
+              // height={30}
             />
           </a>
         </div>

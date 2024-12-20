@@ -2,6 +2,95 @@
 
 .dropdownMenu {
   position: relative;
+
+  &_button {
+    @media (max-width: 768px) {
+      display: none !important;
+    }
+  }
+
+  &_burger {
+    display: none;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+
+    & input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    &_checkmark {
+      position: relative;
+      top: 0;
+      left: 0;
+      height: 1em;
+      width: 1em;
+
+      & span {
+        width: 32px;
+        height: 2px;
+        background-color: variables.$white-color;
+        position: absolute;
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+      }
+
+      & span:nth-child(1) {
+        top: 10%;
+      }
+
+      & span:nth-child(2) {
+        top: 50%;
+      }
+
+      & span:nth-child(3) {
+        top: 90%;
+      }
+    }
+
+    & input:checked + .dropdownMenu_burger_checkmark span:nth-child(1) {
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      -webkit-transform: translateY(-50%) rotate(45deg);
+      -moz-transform: translateY(-50%) rotate(45deg);
+      -ms-transform: translateY(-50%) rotate(45deg);
+      -o-transform: translateY(-50%) rotate(45deg);
+    }
+
+    & input:checked + .dropdownMenu_burger_checkmark span:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
+      -webkit-transform: translateY(-50%) rotate(-45deg);
+      -moz-transform: translateY(-50%) rotate(-45deg);
+      -ms-transform: translateY(-50%) rotate(-45deg);
+      -o-transform: translateY(-50%) rotate(-45deg);
+    }
+
+    & input:checked + .dropdownMenu_burger_checkmark span:nth-child(3) {
+      transform: translateX(-50px);
+      -webkit-transform: translateX(-50px);
+      -moz-transform: translateX(-50px);
+      -ms-transform: translateX(-50px);
+      -o-transform: translateX(-50px);
+      opacity: 0;
+    }
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  @media (max-width: 768px) {
+    order: 3;
+  }
 }
 
 .menu {
@@ -12,8 +101,20 @@
   transform: translateX(-50%);
   border-radius: 8px;
   padding: 40px 0;
-  overflow: hidden;
+  // overflow: hidden;
   transition: opacity 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 30px;
+    right: -20px;
+    left: auto;
+    transform: translateX(0);
+  }
+
+  @media (max-width: 480px) {
+    width: 100vw;
+  }
 }
 
 .menu ul {
