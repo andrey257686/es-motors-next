@@ -7,59 +7,14 @@ import { StyledText } from '../UI/StyledText/StyledText';
 import chunkArray from '../../utils/chunkArray';
 
 interface AdvantageItem {
-  id: number;
-  title: string;
-  description: string;
-  icon: string;
+  title_advantages: string;
+  inside_advantages: string;
+  icon_advantages: string;
 }
 
-const adavantageArray: AdvantageItem[] = [
-  {
-    id: 1,
-    title: 'Широкий ассортимент',
-    description:
-      'Разнообразные автозапчасти, включая детали двигателя, трансмиссии, тормозной системы, подвески, кузовные элементы, электронику и аксессуары.',
-    icon: '/images/cart.svg',
-  },
-  {
-    id: 2,
-    title: 'Качество продукции',
-    description:
-      'В наличии как оригинальные запчасти от производителей, так и качественные аналоги, что позволяет покупателям выбирать в зависимости от бюджета и предпочтений.',
-    icon: '/images/quality.svg',
-  },
-  {
-    id: 3,
-    title: 'Гарантия и возврат',
-    description:
-      'Предоставление гарантии на запчасти и возможность возврата или обмена товара в случае неисправности или неверного выбора.',
-    icon: '/images/box.svg',
-  },
-  {
-    id: 4,
-    title: 'Онлайн-заказ',
-    description:
-      'Возможность заказа через интернет с доставкой на дом или самовывозом.',
-    icon: '/images/earth.svg',
-  },
-  {
-    id: 5,
-    title: 'Лучшие цены',
-    description:
-      'Прямая работа с поставщиками позволяет нам держать лучшие цены на рынке автозапчастей.',
-    icon: '/images/ruble.svg',
-  },
-  {
-    id: 6,
-    title: 'Персональные консультации',
-    description:
-      'Опытные консультанты помогут клиентам подобрать нужные запчасти, ответят на вопросы и дадут рекомендации по замене и установке..',
-    icon: '/images/people.svg',
-  },
-];
-
-export default function AdvantagesBlock() {
-  const chunkedArray = chunkArray<AdvantageItem>(adavantageArray, 3);
+export default async function AdvantagesBlock() {
+  const advantages: AdvantageItem[] = await getAdvantages();
+  const chunkedArray = chunkArray<AdvantageItem>(advantages, 3);
 
   return (
     <div className={styles.advantages}>
@@ -75,54 +30,76 @@ export default function AdvantagesBlock() {
         </Typography>
       </div>
       <div className={styles.advantages_list}>
+        {/* {advantages.map((item, idx) => (
+          <div
+            key={idx}
+            className={
+              idx % 4 === 1
+                ? `${styles.advantage} ${styles.advantage_white}`
+                : styles.advantage
+            }
+          >
+            <div className={styles.advantage_top}>
+              <Image
+                src={item.icon_advantages}
+                alt={item.title_advantages}
+                width={56}
+                height={56}
+                className={styles.advantage_icon}
+              />
+              <Typography variant="header">{item.title_advantages}</Typography>
+            </div>
+            <Typography variant="body">{item.inside_advantages}</Typography>
+          </div>
+        ))} */}
         {chunkedArray.map((chunk, idx) => (
           <div key={`row-${idx}`} className={styles.advantages_row}>
             {idx % 2 !== 0 && <div className={styles.advantage_empty}></div>}
-            {chunk.map((item) => (
-              <div
-                key={item.id}
-                className={
-                  item.id === 2 || item.id % 4 === 0
-                    ? `${styles.advantage} ${styles.advantage_white}`
-                    : styles.advantage
-                }
-              >
-                <div className={styles.advantage_top}>
-                  <Image
-                    src={item.icon}
-                    alt={item.title}
-                    width={56}
-                    height={56}
-                    className={styles.advantage_icon}
-                  />
-                  <Typography variant="header">{item.title}</Typography>
+            {chunk.map((item, itemIdx) => {
+              const key = idx * chunk.length + itemIdx + 1;
+              return (
+                <div
+                  key={key}
+                  className={
+                    key === 2 || key % 4 === 0
+                      ? `${styles.advantage} ${styles.advantage_white}`
+                      : styles.advantage
+                  }
+                >
+                  <div className={styles.advantage_top}>
+                    <Image
+                      src={item.icon_advantages}
+                      alt={item.title_advantages}
+                      width={56}
+                      height={56}
+                      className={styles.advantage_icon}
+                    />
+                    <Typography variant="header">
+                      {item.title_advantages}
+                    </Typography>
+                  </div>
+                  <Typography variant="body">
+                    {item.inside_advantages}
+                  </Typography>
                 </div>
-                <Typography variant="body">{item.description}</Typography>
-              </div>
-            ))}
+              );
+            })}
             {idx % 2 === 0 && <div className={styles.advantage_empty}></div>}
           </div>
         ))}
-        {/* {adavantageArray.map((item, idx) =>
-          idx % 3 === 0 ? (
-            <div key={item.id} className={styles.advantage_row}>
-              <div className={styles.advantage}>
-                <div className={styles.advantage_top}>
-                  <Image
-                    src={item.icon}
-                    alt={item.title}
-                    width={56}
-                    height={56}
-                    className={styles.advantage_icon}
-                  />
-                  <Typography variant="header">{item.title}</Typography>
-                </div>
-                <Typography variant="body">{item.description}</Typography>
-              </div>
-            </div>
-          ) : null
-        )} */}
       </div>
     </div>
   );
+}
+
+export async function getAdvantages() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/start/advantages`,
+    {
+      next: { revalidate: 86400 },
+    }
+  );
+  const advantages = await res.json();
+
+  return advantages;
 }

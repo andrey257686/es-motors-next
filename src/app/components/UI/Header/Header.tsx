@@ -4,7 +4,14 @@ import Link from 'next/link';
 import DropDownMenu from '@/app/components/UI/DropDownMenu/DropDownMenu';
 import styles from './Header.module.scss';
 
-export default function Header() {
+interface Socials {
+  social_tg: string;
+  social_whatsapp: string;
+}
+
+export default async function Header() {
+  const socials: Socials = await getSocials();
+  console.log(socials);
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -12,7 +19,7 @@ export default function Header() {
         {/* <Button typeButton="outline">Каталог товаров</Button> */}
         <DropDownMenu />
         <div className={styles.social}>
-          <a href="#" className={styles.icon}>
+          <a href={socials.social_tg} className={styles.icon}>
             <Image
               src="/images/telegram-logo.svg"
               alt="Свяжитесь с нами через Telegram"
@@ -21,7 +28,7 @@ export default function Header() {
               // height={30}
             />
           </a>
-          <a href="#" className={styles.icon}>
+          <a href={socials.social_whatsapp} className={styles.icon}>
             <Image
               src="/images/whatsapp-logo.svg"
               alt="Свяжитесь с нами через WhatsApp"
@@ -34,4 +41,13 @@ export default function Header() {
       </div>
     </header>
   );
+}
+
+export async function getSocials() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/start/social`, {
+    next: { revalidate: 86400 },
+  });
+  const socials = await res.json();
+
+  return socials;
 }
