@@ -48,78 +48,81 @@ export default function DropDownMenu() {
       {/* <button className={styles.dropdownMenu_burger} onClick={toggleMenu}>
         burger
       </button> */}
-      {isMenuOpen && (
-        <div className={styles.menu}>
-          <ul>
-            <li>
-              <Link href="/category1" onClick={() => setIsMenuOpen(false)}>
-                <Image
-                  src="/images/gear-icon.svg"
-                  alt="Категория 1"
-                  width={25}
-                  height={25}
-                />
-                <Typography variant="body">Категория 1</Typography>
-              </Link>
-            </li>
-            <li>
-              <Link href="/category2" onClick={() => setIsMenuOpen(false)}>
-                <Image
-                  src="/images/gear-icon.svg"
-                  alt="Категория 2"
-                  width={25}
-                  height={25}
-                />
-                <Typography variant="body">Категория 2</Typography>
-              </Link>
-            </li>
-            <li>
-              <Link href="/category3" onClick={() => setIsMenuOpen(false)}>
-                <Image
-                  src="/images/gear-icon.svg"
-                  alt="Категория 3"
-                  width={25}
-                  height={25}
-                />
-                <Typography variant="body">Аккумуляторные батареи</Typography>
-              </Link>
-            </li>
-            <li>
-              <Link href="/category4" onClick={() => setIsMenuOpen(false)}>
-                <Image
-                  src="/images/gear-icon.svg"
-                  alt="Категория 4"
-                  width={25}
-                  height={25}
-                />
-                <Typography variant="body">Шины</Typography>
-              </Link>
-            </li>
-            <li>
-              <Link href="/category5" onClick={() => setIsMenuOpen(false)}>
-                <Image
-                  src="/images/gear-icon.svg"
-                  alt="Категория 5"
-                  width={25}
-                  height={25}
-                />
-                <Typography variant="body">Масла</Typography>
-              </Link>
-            </li>
-            <li>
-              <Link href="/category6" onClick={() => setIsMenuOpen(false)}>
-                <Image
-                  src="/images/gear-icon.svg"
-                  alt="Категория 6"
-                  width={25}
-                  height={25}
-                />
-                <Typography variant="body">Инструменты</Typography>
-              </Link>
-            </li>
-          </ul>
-        </div>
-      )}
+      {/* {isMenuOpen && ( */}
+      <div
+        className={`${styles.menu} ${isMenuOpen ? styles.menu_open : ''}`}
+        aria-hidden={!isMenuOpen}
+      >
+        <ul>
+          <li>
+            <Link href="/category1" onClick={() => setIsMenuOpen(false)}>
+              <Image
+                src="/images/gear-icon.svg"
+                alt="Категория 1"
+                width={25}
+                height={25}
+              />
+              <Typography variant="body">Категория 1</Typography>
+            </Link>
+          </li>
+          <li>
+            <Link href="/category2" onClick={() => setIsMenuOpen(false)}>
+              <Image
+                src="/images/gear-icon.svg"
+                alt="Категория 2"
+                width={25}
+                height={25}
+              />
+              <Typography variant="body">Категория 2</Typography>
+            </Link>
+          </li>
+          <li>
+            <Link href="/category3" onClick={() => setIsMenuOpen(false)}>
+              <Image
+                src="/images/gear-icon.svg"
+                alt="Категория 3"
+                width={25}
+                height={25}
+              />
+              <Typography variant="body">Аккумуляторные батареи</Typography>
+            </Link>
+          </li>
+          <li>
+            <Link href="/category4" onClick={() => setIsMenuOpen(false)}>
+              <Image
+                src="/images/gear-icon.svg"
+                alt="Категория 4"
+                width={25}
+                height={25}
+              />
+              <Typography variant="body">Шины</Typography>
+            </Link>
+          </li>
+          <li>
+            <Link href="/category5" onClick={() => setIsMenuOpen(false)}>
+              <Image
+                src="/images/gear-icon.svg"
+                alt="Категория 5"
+                width={25}
+                height={25}
+              />
+              <Typography variant="body">Масла</Typography>
+            </Link>
+          </li>
+          <li>
+            <Link href="/category6" onClick={() => setIsMenuOpen(false)}>
+              <Image
+                src="/images/gear-icon.svg"
+                alt="Категория 6"
+                width={25}
+                height={25}
+              />
+              <Typography variant="body">Инструменты</Typography>
+            </Link>
+          </li>
+        </ul>
+      </div>
+      {/* )} */}
     </div>
   );
 }
