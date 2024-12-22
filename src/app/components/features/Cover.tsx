@@ -1,10 +1,12 @@
 import styles from './Cover.module.scss';
 import Image from 'next/image';
 
-import Button from '../UI/Button/Button';
+// import Button from '../UI/Button/Button';
 import Typography from '../UI/Typography/Typography';
 import { StyledText } from '../UI/StyledText/StyledText';
 import coverImage from '../../../../public/images/cover-auto-orig-min.png';
+import OpenModalButton from '../UI/Modal/OpenModalButton';
+import FeedbackModal from '../UI/FeedbackModal/FeedbackModal';
 
 export default function Cover() {
   return (
@@ -20,7 +22,10 @@ export default function Cover() {
         </Typography>
       </div>
       <div>
-        <Button typeButton="primary">Оставить заявку на подбор</Button>
+        {/* <Button typeButton="primary">Оставить заявку на подбор</Button> */}
+        <OpenModalButton typeButton="primary" modalContent={<FeedbackModal />}>
+          Оставить заявку на подбор
+        </OpenModalButton>
       </div>
       <div className={styles.imageContainer}>
         <Image

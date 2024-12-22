@@ -14,13 +14,13 @@ export type ButtonType =
   | 'error'
   | 'cancel';
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   typeButton?: ButtonType;
   fullwidth?: boolean;
   sx?: CSSProperties;
 }
 
-const Button = forwardRef<HTMLButtonElement, Props>(
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       typeButton = 'primary',

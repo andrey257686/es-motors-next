@@ -2,7 +2,9 @@ import Image from 'next/image';
 
 import { StyledText } from '../UI/StyledText/StyledText';
 import Typography from '../UI/Typography/Typography';
-import Button from '../UI/Button/Button';
+// import Button from '../UI/Button/Button';
+import OpenModalButton from '../UI/Modal/OpenModalButton';
+import FeedbackModal from '../UI/FeedbackModal/FeedbackModal';
 
 import styles from './HowWorkBlock.module.scss';
 import stepsArrowImage from '../../../../public/images/steps_arrow2.svg';
@@ -73,14 +75,21 @@ export default function HowWorkBlock() {
           width={80}
           height={80}
         />
-        <Button
+        {/* <Button
           typeButton="outline"
           // fullwidth={true}
           className={styles.request_button}
           // style={{ width: '100%', textAlign: 'center' }}
         >
           Заявка в 1 клик
-        </Button>
+        </Button> */}
+        <OpenModalButton
+          typeButton="outline"
+          modalContent={<FeedbackModal />}
+          className={styles.request_button}
+        >
+          Заявка в 1 клик
+        </OpenModalButton>
       </div>
     </div>
   );
