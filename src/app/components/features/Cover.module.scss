@@ -14,6 +14,12 @@
   @return calc(#{$base} + #{$slope} * 100vw);
 }
 
+@function responsive-width($min-width, $max-width, $min-value, $max-value) {
+  $slope: ($max-value - $min-value) / ($max-width - $min-width); // Уклон (slope)
+  $base: $min-value - ($slope * $min-width); // Базовое значение
+  @return calc(#{$base} + #{$slope} * 100vw); // Возвращаем значение для calc
+}
+
 .cover {
   display: flex;
   flex-direction: column;
@@ -92,6 +98,15 @@
     top: responsive-value(320px, 480px, 150px, 100px);
     right: responsive-value(320px, 480px, -200px, -280px);
   }
+
+  &:hover {
+    .headlight_left {
+      opacity: 1;
+    }
+    .headlight_right {
+      opacity: 1;
+    }
+  }
 }
 
 .heading {
@@ -102,4 +117,32 @@
 
 .green {
   color: variables.$green-color;
+}
+
+.headlight_left {
+  position: relative;
+  top: responsive-value(1025px, 1920px, 485px, 960px);
+  left: responsive-value(1025px, 1920px, 65px, 115px);
+  width: responsive-width(1025px, 1920px, 90px, 185px);
+
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.headlight_right {
+  position: relative;
+  top: responsive-value(1025px, 1920px, 485px, 960px);
+  left: responsive-value(1025px, 1920px, 255px, 460px);
+  width: responsive-width(1025px, 1920px, 185px, 348px);
+
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 }

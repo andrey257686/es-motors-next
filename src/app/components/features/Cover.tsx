@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Typography from '../UI/Typography/Typography';
 import { StyledText } from '../UI/StyledText/StyledText';
 import coverImage from '../../../../public/images/cover-auto-orig-min.png';
+import headlightLeftImage from '../../../../public/images/headlight-1.svg';
+import headlightRightImage from '../../../../public/images/headlight-2.svg';
 import OpenModalButton from '../UI/Modal/OpenModalButton';
 import FeedbackModal from '../UI/FeedbackModal/FeedbackModal';
 
@@ -35,6 +37,22 @@ export default function Cover() {
           placeholder="blur"
           alt="Автомобиль"
           fill={true}
+        />
+        <Image
+          src={headlightLeftImage}
+          className={styles.headlight_left}
+          loading="eager"
+          alt="Лампа"
+          width={185}
+          height={104}
+        />
+        <Image
+          src={headlightRightImage}
+          className={styles.headlight_right}
+          loading="eager"
+          alt="Лампа"
+          width={348}
+          height={105}
         />
       </div>
     </div>
