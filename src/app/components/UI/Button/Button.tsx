@@ -37,8 +37,6 @@ const Button = forwardRef<HTMLButtonElement, Props>(
       fullwidth && styles.fullwidth
     } ${className}`;
 
-    console.log(className);
-
     return (
       <button
         ref={ref}

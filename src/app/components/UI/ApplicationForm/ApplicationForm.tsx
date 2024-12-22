@@ -16,9 +16,11 @@ interface ApplicationFormProps {
 }
 
 const initialFormData = {
-  fullName: '',
-  phoneNumber: '',
-  request: '',
+  feedback_name: '',
+  feedback_number: '',
+  feedback_comments: '',
+  // feedback_messengers_tg: false,
+  // feedback_messengers_wa: false,
   contactMethods: [] as string[],
 };
 
@@ -63,10 +65,38 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
     return !Object.values(newErrors).some(Boolean);
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log('Отправляем данные:', formData);
+      const parsedFormData = {
+        feedback_name: formData.feedback_name,
+        feedback_telephone: formData.feedback_number,
+        feedback_comments: formData.feedback_comments,
+        feedback_messengers_tg: formData.contactMethods.includes('telegram'),
+        feedback_messengers_wa: formData.contactMethods.includes('whatsapp'),
+      };
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/start/feedback`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(parsedFormData),
+          }
+        );
+
+        if (response.ok) {
+          const result = await response.json();
+          console.log('Успешно отправлено:', result);
+          setFormData(initialFormData);
+        } else {
+          console.error('Ошибка при отправке формы:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Ошибка:', error);
+      }
     }
   };
 
@@ -95,11 +125,11 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
       <div className={styles.form_fields}>
         <div className={styles.field}>
           <input
-            id="fullName"
-            name="fullName"
+            id="feedback_name"
+            name="feedback_name"
             type="text"
             aria-label="ФИО"
-            value={formData.fullName}
+            value={formData.feedback_name}
             onChange={handleChange}
             placeholder="ФИО"
             className={styles.input_name}
@@ -109,12 +139,12 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
 
         <div className={styles.field}>
           <input
-            id="phoneNumber"
-            name="phoneNumber"
+            id="feedback_number"
+            name="feedback_number"
             type="tel"
             aria-label="Номер телефона"
             ref={inputPhoneRef}
-            value={formData.phoneNumber}
+            value={formData.feedback_number}
             onChange={handleChange}
             className={styles.input_phone}
             required
@@ -123,10 +153,10 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
 
         <div className={styles.field}>
           <textarea
-            id="request"
-            name="request"
+            id="feedback_comments"
+            name="feedback_comments"
             aria-label="Запрос"
-            value={formData.request}
+            value={formData.feedback_comments}
             onChange={handleChange}
             placeholder="Кратко опишите свой запрос..."
             required
