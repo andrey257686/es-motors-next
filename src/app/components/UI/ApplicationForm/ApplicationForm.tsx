@@ -19,8 +19,6 @@ const initialFormData = {
   feedback_name: '',
   feedback_number: '',
   feedback_comments: '',
-  // feedback_messengers_tg: false,
-  // feedback_messengers_wa: false,
   contactMethods: [] as string[],
 };
 

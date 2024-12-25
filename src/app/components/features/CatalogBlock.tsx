@@ -12,28 +12,15 @@ import carChemistryImage from '../../../../public/images/car_chemistry.png';
 import toolsImage from '../../../../public/images/tools.png';
 import accessoriesImage from '../../../../public/images/accessories.png';
 import accumsImage from '../../../../public/images/accums.png';
-import { StaticImageData } from 'next/image';
 import Link from 'next/link';
-
-export interface CatalogItem {
-  id: number;
-  name: string;
-  nameEn: string;
-  brands: string[];
-  image: {
-    src: string;
-    width: number;
-    height: number;
-  };
-  imagePNG: StaticImageData;
-}
+import { CatalogItem } from '@/app/types/types';
 
 const arrayCatalog: CatalogItem[] = [
   {
     id: 1,
     name: 'Масла',
     nameEn: 'oils',
-    brands: ['Bosch', 'Pirelli', 'Viking', 'Castrol'],
+    brands: ['Лукойл', 'CASTROL', 'MOBIL', 'GAZPROMNEF'],
     image: {
       src: '/images/oils.png',
       width: 650,
@@ -45,7 +32,7 @@ const arrayCatalog: CatalogItem[] = [
     id: 2,
     name: 'Шины',
     nameEn: 'tires',
-    brands: ['Continental', 'Hankook', 'Mirage', 'Goodyear'],
+    brands: ['Michelin', 'Bridgeston', 'Yokohama', 'Continental'],
     image: {
       src: '/images/tires.png',
       width: 501,
@@ -57,7 +44,7 @@ const arrayCatalog: CatalogItem[] = [
     id: 3,
     name: 'Автохимия',
     nameEn: 'car_chemistry',
-    brands: ['Astra', 'Hankook', 'Atas', 'Makita'],
+    brands: ['Sonax', 'Chemical Guys', 'CarPro', 'Adams Polishes'],
     image: {
       src: '/images/car_chemistry.png',
       width: 652,
@@ -69,7 +56,7 @@ const arrayCatalog: CatalogItem[] = [
     id: 4,
     name: 'Инструменты',
     nameEn: 'tools',
-    brands: ['Bosch', 'Pirelli', 'Viking', 'Castrol'],
+    brands: ['STELS', 'Inforce', 'Jonnesway', 'Ombra'],
     image: {
       src: '/images/tools.png',
       width: 445,
@@ -81,7 +68,12 @@ const arrayCatalog: CatalogItem[] = [
     id: 5,
     name: 'Аксессуары',
     nameEn: 'accessories',
-    brands: ['Bosch', 'Pirelli', 'Viking', 'Castrol'],
+    brands: [
+      'Garmin Dash Cam 55',
+      'CARCHET TPMS',
+      'GPS Spy Tec',
+      'Easy One Touch 4',
+    ],
     image: {
       src: '/images/accessories.png',
       width: 698,
@@ -93,7 +85,12 @@ const arrayCatalog: CatalogItem[] = [
     id: 6,
     name: 'Аккумуляторы',
     nameEn: 'accums',
-    brands: ['Varta', 'Exide', 'Topla', 'Akom'],
+    brands: [
+      'MONBAT Premium',
+      'FORSE',
+      'TESLA Premium Energy',
+      'Smart Element',
+    ],
     image: {
       src: '/images/accums.png',
       width: 352,
@@ -104,7 +101,6 @@ const arrayCatalog: CatalogItem[] = [
 ];
 
 export default async function CatalogBlock() {
-  // const catalog = await getCatalog();
   const chunkedArray = chunkArray<CatalogItem>(arrayCatalog, 3);
 
   return (
@@ -113,7 +109,6 @@ export default async function CatalogBlock() {
         <Typography variant="logo">
           <StyledText firstWord="ES_" secondWord="КАТАЛОГ ТОВАРОВ" />
         </Typography>
-        {/* <Button typeButton="outline">Смотреть весь каталог</Button> */}
         <Link href="/catalog" className={styles.catalog_link}>
           <Button typeButton="outline">Смотреть весь каталог</Button>
         </Link>

@@ -3,21 +3,11 @@ import Link from 'next/link';
 import DropDownMenu from '@/app/components/UI/DropDownMenu/DropDownMenu';
 import styles from './Header.module.scss';
 
-interface Socials {
-  social_tg: string;
-  social_whatsapp: string;
-}
-
-export interface CatalogItemBackend {
-  order: number;
-  name_category: string;
-  brand_names: string[];
-}
+import { Socials, CatalogItemBackend } from '@/app/types/types';
 
 export default async function Header() {
   const socials: Socials = await getSocials();
   const catalog: CatalogItemBackend[] = await getCatalog();
-  console.log(catalog);
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -56,6 +46,7 @@ export async function getSocials() {
 export async function getCatalog() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/start/catalog`, {
     next: { revalidate: 86400 },
+    cache: 'force-cache',
   });
   const catalog = await res.json();
 

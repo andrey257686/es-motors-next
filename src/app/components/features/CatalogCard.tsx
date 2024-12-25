@@ -5,7 +5,7 @@ import Image from 'next/image';
 import styles from './CatalogCard.module.scss';
 import Typography from '../UI/Typography/Typography';
 
-import { CatalogItem } from '@/app/components/features/CatalogBlock';
+import { CatalogItem } from '@/app/types/types';
 
 type CatalogCardProps = {
   item: CatalogItem;

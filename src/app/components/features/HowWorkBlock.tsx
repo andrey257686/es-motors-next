@@ -9,12 +9,7 @@ import FeedbackModal from '../UI/FeedbackModal/FeedbackModal';
 import styles from './HowWorkBlock.module.scss';
 import stepsArrowImage from '../../../../public/images/steps_arrow2.svg';
 import arrowRight from '../../../../public/images/arrow-right.svg';
-
-interface StepProps {
-  number: number;
-  title: string;
-  description: string;
-}
+import { StepProps } from '@/app/types/types';
 
 function Step({ number, title, description }: StepProps) {
   return (

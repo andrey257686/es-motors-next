@@ -5,8 +5,10 @@ import styles from './Footer.module.scss';
 
 import ApplicationForm from '../ApplicationForm/ApplicationForm';
 import Typography from '../Typography/Typography';
+import { CatalogItemBackend } from '../Header/Header';
 
-export default function Footer() {
+export default async function Footer() {
+  const catalog: CatalogItemBackend[] = await getCatalog();
   return (
     <footer className={styles.footer}>
       <div className={styles.line}></div>
@@ -54,36 +56,13 @@ export default function Footer() {
         <div className={styles.catalog}>
           <Typography variant="subheader">КАТАЛОГ</Typography>
           <ul>
-            <li>
-              <Link aria-hidden="true" href="/#">
-                Автохимия
-              </Link>
-            </li>
-            <li>
-              <Link aria-hidden="true" href="/#">
-                Аккумуляторы
-              </Link>
-            </li>
-            <li>
-              <Link aria-hidden="true" href="/#">
-                Аксессуары
-              </Link>
-            </li>
-            <li>
-              <Link aria-hidden="true" href="/#">
-                Диски
-              </Link>
-            </li>
-            <li>
-              <Link aria-hidden="true" href="/#">
-                Масла
-              </Link>
-            </li>
-            <li>
-              <Link aria-hidden="true" href="/#">
-                Шины
-              </Link>
-            </li>
+            {catalog.map((item) => (
+              <li aria-hidden="true" key={item.order}>
+                <Link href={`/category/${item.name_category}`}>
+                  {item.name_category}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div className={styles.feedback_form}>
@@ -110,4 +89,14 @@ export default function Footer() {
       </div>
     </footer>
   );
+}
+
+export async function getCatalog() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/start/catalog`, {
+    next: { revalidate: 86400 },
+    cache: 'force-cache',
+  });
+  const catalog = await res.json();
+
+  return catalog;
 }

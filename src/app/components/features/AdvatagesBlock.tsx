@@ -5,12 +5,7 @@ import styles from './AdvantagesBlock.module.scss';
 import Typography from '../UI/Typography/Typography';
 import { StyledText } from '../UI/StyledText/StyledText';
 import chunkArray from '../../utils/chunkArray';
-
-interface AdvantageItem {
-  title_advantages: string;
-  inside_advantages: string;
-  icon_advantages: string;
-}
+import { AdvantageItem } from '@/app/types/types';
 
 export default async function AdvantagesBlock() {
   const advantages: AdvantageItem[] = await getAdvantages();
