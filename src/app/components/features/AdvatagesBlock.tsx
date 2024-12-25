@@ -14,7 +14,7 @@ export default async function AdvantagesBlock() {
   return (
     <div className={styles.advantages}>
       <div className={styles.advantages_top}>
-        <Typography variant="logo">
+        <Typography as="h3" variant="logo">
           <StyledText firstWord="ES_" secondWord="ПРЕИМУЩЕСТВА" />
         </Typography>
         <Typography variant="subheader">

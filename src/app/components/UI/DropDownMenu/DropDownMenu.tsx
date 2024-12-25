@@ -6,7 +6,7 @@ import styles from './DropDownMenu.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
 import Typography from '../Typography/Typography';
-import { CatalogItemBackend } from '@/app/components/UI/Header/Header';
+import { CatalogItemBackend } from '@/app/types/types';
 
 type Props = {
   items: CatalogItemBackend[];
@@ -57,10 +57,7 @@ export default function DropDownMenu({ items }: Props) {
         <ul>
           {items.map((item) => (
             <li key={item.order}>
-              <Link
-                href={`/category/${item.name_category}`}
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <Link href={`/catalog`} onClick={() => setIsMenuOpen(false)}>
                 <Image
                   src="/images/gear-icon.svg"
                   alt="Категория"

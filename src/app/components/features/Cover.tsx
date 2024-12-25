@@ -14,17 +14,16 @@ export default function Cover() {
   return (
     <div className={styles.cover}>
       <div>
-        <Typography variant="title">
+        <Typography as="h1" variant="title">
           <StyledText firstWord="АВТО" secondWord="ЗАПЧАСТИ" />
         </Typography>
-        <Typography variant="header">
+        <Typography as="h2" variant="header">
           Качественный сервис по подбору и продаже
           <br />
           автозапчастей по всей России
         </Typography>
       </div>
       <div>
-        {/* <Button typeButton="primary">Оставить заявку на подбор</Button> */}
         <OpenModalButton typeButton="primary" modalContent={<FeedbackModal />}>
           Оставить заявку на подбор
         </OpenModalButton>

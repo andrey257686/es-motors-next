@@ -11,7 +11,7 @@ import locationIcon from '../../../../public/images/location.svg';
 export default function ShopInfoBlock() {
   return (
     <div className={styles.shopInfo}>
-      <Typography variant="logo">
+      <Typography as="h3" variant="logo">
         <StyledText firstWord="ES_" secondWord="ОФЛАЙН МАГАЗИН" />
       </Typography>
       <div className={styles.descriptionBlock}>

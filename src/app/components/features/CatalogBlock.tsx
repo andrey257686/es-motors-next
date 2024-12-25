@@ -106,7 +106,7 @@ export default async function CatalogBlock() {
   return (
     <div className={styles.catalog}>
       <div className={styles.top_catalog}>
-        <Typography variant="logo">
+        <Typography as="h3" variant="logo">
           <StyledText firstWord="ES_" secondWord="КАТАЛОГ ТОВАРОВ" />
         </Typography>
         <Link href="/catalog" className={styles.catalog_link}>

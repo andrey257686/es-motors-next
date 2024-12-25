@@ -5,7 +5,7 @@ import styles from './Footer.module.scss';
 
 import ApplicationForm from '../ApplicationForm/ApplicationForm';
 import Typography from '../Typography/Typography';
-import { CatalogItemBackend } from '../Header/Header';
+import { CatalogItemBackend } from '@/app/types/types';
 
 export default async function Footer() {
   const catalog: CatalogItemBackend[] = await getCatalog();
@@ -58,9 +58,7 @@ export default async function Footer() {
           <ul>
             {catalog.map((item) => (
               <li aria-hidden="true" key={item.order}>
-                <Link href={`/category/${item.name_category}`}>
-                  {item.name_category}
-                </Link>
+                <Link href={`/catalog`}>{item.name_category}</Link>
               </li>
             ))}
           </ul>

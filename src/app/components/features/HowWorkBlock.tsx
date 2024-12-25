@@ -38,7 +38,7 @@ export default function HowWorkBlock() {
         alt="Стрелка вправо"
         className={styles.arrow_right}
       />
-      <Typography variant="logo">
+      <Typography as="h3" variant="logo">
         <StyledText firstWord="ES_" secondWord="КАК РАБОТАЕМ?" />
       </Typography>
       <div className={styles.steps}>
