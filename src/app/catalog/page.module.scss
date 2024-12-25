@@ -1,0 +1,12 @@
+@use '@/app/styles/variables.module.scss';
+
+.catalog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 30vw;
+  background-color: variables.$black-color;
+  color: variables.$green-color;
+}

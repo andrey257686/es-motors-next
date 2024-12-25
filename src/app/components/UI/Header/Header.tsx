@@ -8,13 +8,21 @@ interface Socials {
   social_whatsapp: string;
 }
 
+export interface CatalogItemBackend {
+  order: number;
+  name_category: string;
+  brand_names: string[];
+}
+
 export default async function Header() {
   const socials: Socials = await getSocials();
+  const catalog: CatalogItemBackend[] = await getCatalog();
+  console.log(catalog);
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <Link aria-hidden="true" href="/" className={styles.logo}></Link>
-        <DropDownMenu />
+        <DropDownMenu items={catalog} />
         <div className={styles.social}>
           <a href={socials.social_tg} className={styles.icon}>
             <Image
@@ -43,4 +51,13 @@ export async function getSocials() {
   const socials = await res.json();
 
   return socials;
+}
+
+export async function getCatalog() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/start/catalog`, {
+    next: { revalidate: 86400 },
+  });
+  const catalog = await res.json();
+
+  return catalog;
 }

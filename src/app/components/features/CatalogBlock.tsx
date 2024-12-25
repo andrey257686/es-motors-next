@@ -13,6 +13,7 @@ import toolsImage from '../../../../public/images/tools.png';
 import accessoriesImage from '../../../../public/images/accessories.png';
 import accumsImage from '../../../../public/images/accums.png';
 import { StaticImageData } from 'next/image';
+import Link from 'next/link';
 
 export interface CatalogItem {
   id: number;
@@ -102,7 +103,8 @@ const arrayCatalog: CatalogItem[] = [
   },
 ];
 
-export default function CatalogBlock() {
+export default async function CatalogBlock() {
+  // const catalog = await getCatalog();
   const chunkedArray = chunkArray<CatalogItem>(arrayCatalog, 3);
 
   return (
@@ -111,7 +113,10 @@ export default function CatalogBlock() {
         <Typography variant="logo">
           <StyledText firstWord="ES_" secondWord="КАТАЛОГ ТОВАРОВ" />
         </Typography>
-        <Button typeButton="outline">Смотреть весь каталог</Button>
+        {/* <Button typeButton="outline">Смотреть весь каталог</Button> */}
+        <Link href="/catalog" className={styles.catalog_link}>
+          <Button typeButton="outline">Смотреть весь каталог</Button>
+        </Link>
       </div>
       <div className={styles.catalog_list}>
         {chunkedArray.map((chunk, idx) => (

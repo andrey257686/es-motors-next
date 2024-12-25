@@ -6,8 +6,13 @@ import styles from './DropDownMenu.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
 import Typography from '../Typography/Typography';
+import { CatalogItemBackend } from '@/app/components/UI/Header/Header';
 
-export default function DropDownMenu() {
+type Props = {
+  items: CatalogItemBackend[];
+};
+
+export default function DropDownMenu({ items }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -45,84 +50,29 @@ export default function DropDownMenu() {
           <span></span>
         </div>
       </label>
-      {/* <button className={styles.dropdownMenu_burger} onClick={toggleMenu}>
-        burger
-      </button> */}
-      {/* {isMenuOpen && ( */}
       <div
         className={`${styles.menu} ${isMenuOpen ? styles.menu_open : ''}`}
         aria-hidden={!isMenuOpen}
       >
         <ul>
-          <li>
-            <Link href="/category1" onClick={() => setIsMenuOpen(false)}>
-              <Image
-                src="/images/gear-icon.svg"
-                alt="Категория 1"
-                width={25}
-                height={25}
-              />
-              <Typography variant="body">Категория 1</Typography>
-            </Link>
-          </li>
-          <li>
-            <Link href="/category2" onClick={() => setIsMenuOpen(false)}>
-              <Image
-                src="/images/gear-icon.svg"
-                alt="Категория 2"
-                width={25}
-                height={25}
-              />
-              <Typography variant="body">Категория 2</Typography>
-            </Link>
-          </li>
-          <li>
-            <Link href="/category3" onClick={() => setIsMenuOpen(false)}>
-              <Image
-                src="/images/gear-icon.svg"
-                alt="Категория 3"
-                width={25}
-                height={25}
-              />
-              <Typography variant="body">Аккумуляторные батареи</Typography>
-            </Link>
-          </li>
-          <li>
-            <Link href="/category4" onClick={() => setIsMenuOpen(false)}>
-              <Image
-                src="/images/gear-icon.svg"
-                alt="Категория 4"
-                width={25}
-                height={25}
-              />
-              <Typography variant="body">Шины</Typography>
-            </Link>
-          </li>
-          <li>
-            <Link href="/category5" onClick={() => setIsMenuOpen(false)}>
-              <Image
-                src="/images/gear-icon.svg"
-                alt="Категория 5"
-                width={25}
-                height={25}
-              />
-              <Typography variant="body">Масла</Typography>
-            </Link>
-          </li>
-          <li>
-            <Link href="/category6" onClick={() => setIsMenuOpen(false)}>
-              <Image
-                src="/images/gear-icon.svg"
-                alt="Категория 6"
-                width={25}
-                height={25}
-              />
-              <Typography variant="body">Инструменты</Typography>
-            </Link>
-          </li>
+          {items.map((item) => (
+            <li key={item.order}>
+              <Link
+                href={`/category/${item.name_category}`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Image
+                  src="/images/gear-icon.svg"
+                  alt="Категория"
+                  width={25}
+                  height={25}
+                />
+                <Typography variant="body">{item.name_category}</Typography>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
-      {/* )} */}
     </div>
   );
 }
