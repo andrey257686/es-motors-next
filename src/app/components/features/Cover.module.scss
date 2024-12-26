@@ -128,6 +128,12 @@
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 
+  @media (min-width: 1921px) {
+    top: 960px;
+    left: 115px;
+    width: 185px;
+  }
+
   @media (max-width: 1024px) {
     display: none;
   }
@@ -141,6 +147,12 @@
 
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+
+  @media (min-width: 1921px) {
+    top: 960px;
+    left: 460px;
+    width: 348px;
+  }
 
   @media (max-width: 1024px) {
     display: none;
