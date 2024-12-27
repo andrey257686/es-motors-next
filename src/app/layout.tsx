@@ -4,6 +4,7 @@ import './styles/globals.css';
 import Header from '@/app/components/UI/Header/Header';
 import Footer from '@/app/components/UI/Footer/Footer';
 import { ModalProvider } from '@/app/context/ModalContext';
+import ClientSideToastContainer from '@/app/components/UI/Toast/Toast';
 
 const openSans = Open_Sans({
   subsets: ['cyrillic', 'latin'],
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body aria-hidden="false" id="root" className={`${openSans.variable}`}>
+        <ClientSideToastContainer />
         <ModalProvider>
           <Header />
           {children}

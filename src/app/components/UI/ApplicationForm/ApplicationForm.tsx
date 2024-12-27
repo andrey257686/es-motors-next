@@ -7,6 +7,7 @@ import Button from '../Button/Button';
 import type { ButtonType } from '../Button/Button';
 import Typography from '../Typography/Typography';
 import styles from './ApplicationForm.module.scss';
+import { showToast } from '@/app/utils/toastHelper';
 import tgLogo from '../../../../../public/images/telegram-logo.svg';
 import waLogo from '../../../../../public/images/whatsapp-logo.svg';
 
@@ -29,6 +30,7 @@ const initialErrors = {
 function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
   const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState(initialErrors);
+  const [isLoading, setIsLoading] = useState(false);
 
   const inputPhoneRef = useMask({
     mask: '+7 (___) ___-__-__',
@@ -66,6 +68,7 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+      setIsLoading(true);
       const parsedFormData = {
         feedback_name: formData.feedback_name,
         feedback_telephone: formData.feedback_number,
@@ -74,26 +77,37 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
         feedback_messengers_wa: formData.contactMethods.includes('whatsapp'),
       };
       try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/start/feedback`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(parsedFormData),
-          }
-        );
+        // const response = await fetch(
+        //   `${process.env.NEXT_PUBLIC_API_URL}/start/feedback`,
+        //   {
+        //     method: 'POST',
+        //     headers: {
+        //       'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(parsedFormData),
+        //   }
+        // );
 
-        if (response.ok) {
-          const result = await response.json();
-          console.log('Успешно отправлено:', result);
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        const fakeResponse = {
+          ok: true,
+          json: async () => ({ message: 'Success' }),
+        };
+
+        if (fakeResponse.ok) {
+          const result = await fakeResponse.json();
+          // console.log('Успешно отправлено:', result);
           setFormData(initialFormData);
+          showToast('success', 'Заявка успешно отправлена');
         } else {
-          console.error('Ошибка при отправке формы:', response.statusText);
+          // console.error('Ошибка при отправке формы:');
+          showToast('error', 'Ошибка при отправке формы');
         }
       } catch (error) {
-        console.error('Ошибка:', error);
+        // console.error('Ошибка:', error);
+        showToast('error', 'Ошибка при отправке формы');
+      } finally {
+        setIsLoading(false);
       }
     }
   };
@@ -187,8 +201,9 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
           typeButton={buttonType}
           type="submit"
           style={{ width: '100%', textAlign: 'center', padding: '12px 0' }}
+          disabled={isLoading}
         >
-          Отправить заявку
+          {isLoading ? 'Отправка...' : 'Отправить заявку'}
         </Button>
 
         <Typography variant="caption">

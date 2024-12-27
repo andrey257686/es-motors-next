@@ -1,0 +1,9 @@
+@use '@/app/styles/variables.module.scss';
+
+.Toastify__toast-theme--colored.Toastify__toast--success {
+  background-color: variables.$green-color;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--error {
+  background-color: variables.$red-color;
+}
