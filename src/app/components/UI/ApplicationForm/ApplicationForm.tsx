@@ -76,6 +76,7 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
         feedback_messengers_tg: formData.contactMethods.includes('telegram'),
         feedback_messengers_wa: formData.contactMethods.includes('whatsapp'),
       };
+
       const response = fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/start/feedback`,
         {
@@ -86,6 +87,7 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
           body: JSON.stringify(parsedFormData),
         }
       );
+
       try {
         await new Promise((resolve) => setTimeout(resolve, 1000));
         const fakeResponse = {
@@ -93,15 +95,17 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
           json: async () => ({ message: 'Success' }),
         };
 
-        if (fakeResponse.ok) {
-          const result = await fakeResponse.json();
-          // console.log('Успешно отправлено:', result);
-          setFormData(initialFormData);
-          showToast('success', 'Заявка успешно отправлена');
-        } else {
-          // console.error('Ошибка при отправке формы:');
-          showToast('error', 'Ошибка при отправке формы');
-        }
+        // if (fakeResponse.ok) {
+        //   const result = await fakeResponse.json();
+        //   // console.log('Успешно отправлено:', result);
+        //   setFormData(initialFormData);
+        //   showToast('success', 'Заявка успешно отправлена');
+        // } else {
+        //   // console.error('Ошибка при отправке формы:');
+        //   showToast('error', 'Ошибка при отправке формы');
+        // }
+        setFormData(initialFormData);
+        showToast('success', 'Заявка успешно отправлена');
       } catch (error) {
         // console.error('Ошибка:', error);
         showToast('error', 'Ошибка при отправке формы');
