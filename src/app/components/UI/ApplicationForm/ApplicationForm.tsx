@@ -90,10 +90,10 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
 
       try {
         await new Promise((resolve) => setTimeout(resolve, 1000));
-        const fakeResponse = {
-          ok: true,
-          json: async () => ({ message: 'Success' }),
-        };
+        // const fakeResponse = {
+        //   ok: true,
+        //   json: async () => ({ message: 'Success' }),
+        // };
 
         // if (fakeResponse.ok) {
         //   const result = await fakeResponse.json();
