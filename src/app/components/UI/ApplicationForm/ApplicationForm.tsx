@@ -77,16 +77,13 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
         feedback_messengers_wa: formData.contactMethods.includes('whatsapp'),
       };
 
-      const response = fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/start/feedback`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(parsedFormData),
-        }
-      );
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/start/feedback`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(parsedFormData),
+      });
 
       try {
         await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -107,7 +104,7 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
         setFormData(initialFormData);
         showToast('success', 'Заявка успешно отправлена');
       } catch (error) {
-        // console.error('Ошибка:', error);
+        console.error('Ошибка:', error);
         showToast('error', 'Ошибка при отправке формы');
       } finally {
         setIsLoading(false);
