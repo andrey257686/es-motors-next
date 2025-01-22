@@ -55,6 +55,12 @@ export default function ModalComponent({
               ease: 'easeInOut',
             }}
           >
+            <div
+              className={styles.close_button}
+              onClick={onClose}
+              aria-label="Close modal"
+            >
+            </div>
             {children}
           </motion.div>
         </motion.div>
