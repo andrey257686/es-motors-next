@@ -10,6 +10,7 @@ import styles from './ApplicationForm.module.scss';
 import { showToast } from '@/app/utils/toastHelper';
 import tgLogo from '../../../../../public/images/telegram-logo.svg';
 import waLogo from '../../../../../public/images/whatsapp-logo.svg';
+import { useModal } from '@/app/context/ModalContext';
 
 interface ApplicationFormProps {
   buttonType?: ButtonType;
@@ -31,6 +32,7 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
   const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState(initialErrors);
   const [isLoading, setIsLoading] = useState(false);
+  const { closeModal } = useModal();
 
   const inputPhoneRef = useMask({
     mask: '+7 (___) ___-__-__',
@@ -107,6 +109,7 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
         console.error('Ошибка:', error);
         showToast('error', 'Ошибка при отправке формы');
       } finally {
+        closeModal();
         setIsLoading(false);
       }
     }
@@ -118,16 +121,6 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
     altText: string
   ) => (
     <label className={styles.checkboxLabel}>
-      {/* <label className={styles.checkBox}>
-        <input
-          type="checkbox"
-          name="contactMethod"
-          value={value}
-          onChange={handleCheckboxChange}
-          checked={formData.contactMethods.includes(value)}
-        />
-        <div className={styles.transition}></div>
-      </label> */}
       <label className={styles.checkmarkLabel}>
         <input
           name="contactMethod"
