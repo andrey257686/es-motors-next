@@ -118,7 +118,7 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
     altText: string
   ) => (
     <label className={styles.checkboxLabel}>
-      <label className={styles.checkBox}>
+      {/* <label className={styles.checkBox}>
         <input
           type="checkbox"
           name="contactMethod"
@@ -127,6 +127,16 @@ function ApplicationForm({ buttonType = 'primary', sx }: ApplicationFormProps) {
           checked={formData.contactMethods.includes(value)}
         />
         <div className={styles.transition}></div>
+      </label> */}
+      <label className={styles.checkmarkLabel}>
+        <input
+          name="contactMethod"
+          type="checkbox"
+          value={value}
+          onChange={handleCheckboxChange}
+          checked={formData.contactMethods.includes(value)}
+        />
+        <div className={styles.checkmark}></div>
       </label>
       <Image src={imageSrc} alt={altText} width={60} height={60} />
     </label>
