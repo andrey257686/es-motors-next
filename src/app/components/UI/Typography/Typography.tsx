@@ -22,22 +22,32 @@ const Typography = forwardRef<
   TypographyProps & {
     children: React.ReactNode | ((props: TypographyProps) => React.ReactNode);
   }
->(({ as: Component = 'p', variant, color, sx, children, ...props }, ref) => {
-  const classNames = `${styles.typography} ${variant ? styles[variant] : ''}`;
+>(
+  (
+    { as: Component = 'p', variant, color, sx, className, children, ...props },
+    ref
+  ) => {
+    if (children === 'Аккумуляторы') {
+      console.log(className);
+    }
+    const classNames = `${styles.typography} ${
+      variant ? styles[variant] : ''
+    } ${className ? className : ''}`;
 
-  return (
-    <Component
-      ref={ref}
-      style={{ color, ...sx }}
-      className={classNames}
-      {...props}
-    >
-      {typeof children === 'function'
-        ? children({ variant, color, sx, ...props })
-        : children}
-    </Component>
-  );
-});
+    return (
+      <Component
+        ref={ref}
+        style={{ color, ...sx }}
+        className={classNames}
+        {...props}
+      >
+        {typeof children === 'function'
+          ? children({ variant, color, sx, ...props })
+          : children}
+      </Component>
+    );
+  }
+);
 
 Typography.displayName = 'Typography';
 
