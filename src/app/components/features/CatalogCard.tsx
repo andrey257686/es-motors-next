@@ -15,9 +15,7 @@ const CatalogCard = forwardRef<HTMLDivElement, CatalogCardProps>(
   ({ item }, ref) => {
     return (
       <div className={styles.card} ref={ref}>
-        <Typography className={styles.name} variant="header">
-          {item.name}
-        </Typography>
+        <Typography variant="header">{item.name}</Typography>
         <div className={styles.brands}>
           {item.brands.map((brand) => (
             <Typography variant="body" key={brand}>
