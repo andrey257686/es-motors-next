@@ -1,18 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import DropDownMenu from '@/app/components/UI/DropDownMenu/DropDownMenu';
+// import DropDownMenu from '@/app/components/UI/DropDownMenu/DropDownMenu';
 import styles from './Header.module.scss';
 
-import { Socials, CatalogItemBackend } from '@/app/types/types';
+// import { Socials, CatalogItemBackend } from '@/app/types/types';
+import { Socials } from '@/app/types/types';
 
 export default async function Header() {
   const socials: Socials = await getSocials();
-  const catalog: CatalogItemBackend[] = await getCatalog();
+  // const catalog: CatalogItemBackend[] = await getCatalog();
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <Link aria-hidden="true" href="/" className={styles.logo}></Link>
-        <DropDownMenu items={catalog} />
+        {/* <DropDownMenu items={catalog} /> */}
         <div className={styles.social}>
           <a href={socials.social_tg} className={styles.icon}>
             <Image

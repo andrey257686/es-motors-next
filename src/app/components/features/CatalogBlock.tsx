@@ -2,7 +2,7 @@ import styles from './CatalogBlock.module.scss';
 
 import { StyledText } from '../UI/StyledText/StyledText';
 import Typography from '../UI/Typography/Typography';
-import Button from '../UI/Button/Button';
+// import Button from '../UI/Button/Button';
 import CatalogCard from './CatalogCard';
 import chunkArray from '../../utils/chunkArray';
 
@@ -12,7 +12,7 @@ import carChemistryImage from '../../../../public/images/car_chemistry.png';
 import toolsImage from '../../../../public/images/tools.png';
 import accessoriesImage from '../../../../public/images/accessories.png';
 import accumsImage from '../../../../public/images/accums.png';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { CatalogItem } from '@/app/types/types';
 
 const arrayCatalog: CatalogItem[] = [
@@ -109,9 +109,9 @@ export default async function CatalogBlock() {
         <Typography as="h3" variant="logo">
           <StyledText firstWord="ES_" secondWord="КАТАЛОГ ТОВАРОВ" />
         </Typography>
-        <Link href="/catalog" className={styles.catalog_link}>
+        {/* <Link href="/catalog" className={styles.catalog_link}>
           <Button typeButton="outline">Смотреть весь каталог</Button>
-        </Link>
+        </Link> */}
       </div>
       <div className={styles.catalog_list}>
         {chunkedArray.map((chunk, idx) => (

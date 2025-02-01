@@ -5,10 +5,10 @@ import styles from './Footer.module.scss';
 
 import ApplicationForm from '../ApplicationForm/ApplicationForm';
 import Typography from '../Typography/Typography';
-import { CatalogItemBackend } from '@/app/types/types';
+// import { CatalogItemBackend } from '@/app/types/types';
 
 export default async function Footer() {
-  const catalog: CatalogItemBackend[] = await getCatalog();
+  // const catalog: CatalogItemBackend[] = await getCatalog();
   return (
     <footer className={styles.footer}>
       <div className={styles.line}></div>
@@ -53,7 +53,7 @@ export default async function Footer() {
             </div>
           </div>
         </div>
-        <div className={styles.catalog}>
+        {/* <div className={styles.catalog}>
           <Typography variant="subheader">КАТАЛОГ</Typography>
           <ul>
             {catalog.map((item) => (
@@ -62,7 +62,7 @@ export default async function Footer() {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
         <div className={styles.feedback_form}>
           <Typography variant="subheader">ПОДБОР СПЕЦИАЛИСТОМ</Typography>
           <ApplicationForm buttonType="primary_accent" />
