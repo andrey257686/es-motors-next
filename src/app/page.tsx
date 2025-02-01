@@ -7,6 +7,7 @@ import HowWorkBlock from './components/features/HowWorkBlock';
 import AdvantagesBlock from './components/features/AdvatagesBlock';
 import ShopInfoBlock from './components/features/ShopInfoBlock';
 import AdvertisingBaner from './components/features/AdvertisingBaner';
+import FAQ from './components/features/FAQ';
 import ModalClientTimer from './components/UI/Modal/ModalClientTimer';
 import ChatButton from './components/UI/ChatButton/ChatButton';
 
@@ -47,6 +48,7 @@ export default function Home() {
       <CatalogBlock />
       <AdvertisingBaner />
       <HowWorkBlock />
+      <FAQ />
       <AdvantagesBlock />
       <ShopInfoBlock />
       <GlobalModal />
