@@ -6,6 +6,7 @@ import CatalogBlock from '@/app/components/features/CatalogBlock';
 import HowWorkBlock from './components/features/HowWorkBlock';
 import AdvantagesBlock from './components/features/AdvatagesBlock';
 import ShopInfoBlock from './components/features/ShopInfoBlock';
+import AdvertisingBaner from './components/features/AdvertisingBaner';
 import ModalClientTimer from './components/UI/Modal/ModalClientTimer';
 import ChatButton from './components/UI/ChatButton/ChatButton';
 
@@ -44,6 +45,7 @@ export default function Home() {
       </div>
       <Cover />
       <CatalogBlock />
+      <AdvertisingBaner />
       <HowWorkBlock />
       <AdvantagesBlock />
       <ShopInfoBlock />
