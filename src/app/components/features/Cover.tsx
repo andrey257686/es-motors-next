@@ -18,9 +18,18 @@ export default function Cover() {
           <StyledText firstWord="АВТО" secondWord="ЗАПЧАСТИ" />
         </Typography>
         <Typography as="h2" variant="header">
-          Качественный сервис по подбору и продаже
+          Мы предлагаем запчасти напрямую от производителей,
           <br />
-          автозапчастей по всей России
+          без наценок, которые вы встретите на СТО
+        </Typography>
+        <Typography
+          as="h3"
+          variant="subheader"
+          className={styles.cover_subheader}
+        >
+          Подберем запчасти для вашего авто <span>от 15 минут</span>
+          <br />
+          <span>До 30% выгоднее</span>, чем у дилера или на СТО
         </Typography>
       </div>
       <div>

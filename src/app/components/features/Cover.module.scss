@@ -33,6 +33,16 @@
   color: variables.$white-color;
   padding: 70px 0;
 
+  &_subheader {
+    margin-top: 30px !important;
+    font-weight: 400 !important;
+
+    & span {
+      font-weight: 800 !important;
+      color: variables.$green-color;
+    }
+  }
+
   @media (max-width: 1280px) {
     padding: 40px 0;
     gap: 40px;
@@ -53,10 +63,11 @@
   position: absolute;
   // right: -1100px;
   // top: -450px;
-  right: calculateRight(-1.545);
+  // right: calculateRight(-1.345);
+  right: responsive-value(1024px, 1920px, -720px, -1200px);
   // top: calculateTop(-4.266);
   // top: calculateTop(-4);
-  top: responsive-value(1024px, 1920px, -100px, -470px);
+  top: responsive-value(1024px, 1920px, -100px, -380px);
   width: calc(100vw * 1.275);
   max-width: 2448px;
   max-height: 1405px;
@@ -68,7 +79,7 @@
     width: 2448px;
     height: 1405px;
     top: -450px;
-    right: -1100px;
+    right: -1200px;
   }
 
   @media (max-width: 1024px) {
