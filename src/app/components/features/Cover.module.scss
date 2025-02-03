@@ -1,12 +1,12 @@
 @use '@/app/styles/variables.module.scss';
 
-@function calculateTop($divider) {
-  @return calc(100vw / #{$divider});
-}
+// @function calculateTop($divider) {
+//   @return calc(100vw / #{$divider});
+// }
 
-@function calculateRight($divider) {
-  @return calc(100vw / #{$divider});
-}
+// @function calculateRight($divider) {
+//   @return calc(100vw / #{$divider});
+// }
 
 @function responsive-value($min-width, $max-width, $min-value, $max-value) {
   $slope: ($max-value - $min-value) / ($max-width - $min-width);
@@ -15,9 +15,9 @@
 }
 
 @function responsive-width($min-width, $max-width, $min-value, $max-value) {
-  $slope: ($max-value - $min-value) / ($max-width - $min-width); // Уклон (slope)
-  $base: $min-value - ($slope * $min-width); // Базовое значение
-  @return calc(#{$base} + #{$slope} * 100vw); // Возвращаем значение для calc
+  $slope: ($max-value - $min-value) / ($max-width - $min-width);
+  $base: $min-value - ($slope * $min-width);
+  @return calc(#{$base} + #{$slope} * 100vw);
 }
 
 .cover {
@@ -41,6 +41,10 @@
       font-weight: 800 !important;
       color: variables.$green-color;
     }
+
+    @media (max-width: 1024px) {
+      margin-top: 15px !important;
+    }
   }
 
   @media (max-width: 1280px) {
@@ -61,18 +65,11 @@
 
 .imageContainer {
   position: absolute;
-  // right: -1100px;
-  // top: -450px;
-  // right: calculateRight(-1.345);
-  right: responsive-value(1024px, 1920px, -720px, -1200px);
-  // top: calculateTop(-4.266);
-  // top: calculateTop(-4);
-  top: responsive-value(1024px, 1920px, -100px, -380px);
+  // right: responsive-value(1024px, 1920px, -720px, -1200px);
+  // top: responsive-value(1024px, 1920px, -100px, -380px);
   width: calc(100vw * 1.275);
   max-width: 2448px;
   max-height: 1405px;
-  // width: 2448px;
-  // height: 1405px;
   height: calc(100vw / 1.366);
 
   @media (min-width: 1920px) {
@@ -82,33 +79,57 @@
     right: -1200px;
   }
 
+  @media (max-width: 1920px) {
+    // width: 1920px;
+    // height: 1080px;
+    right: responsive-value(1280px, 1920px, -820px, -1200px);
+    top: responsive-value(1280px, 1920px, -100px, -380px);
+  }
+
+  @media (max-width: 1280px) {
+    right: responsive-value(1024px, 1280px, -620px, -800px);
+    top: responsive-value(1024px, 1280px, -100px, -200px);
+  }
+
   @media (max-width: 1024px) {
-    width: 1457px;
-    height: 838px;
-    top: -150px;
-    right: -720px;
+    // width: 1457px;
+    width: responsive-width(768px, 1024px, 1000px, 1457px);
+    // height: 838px;
+    height: responsive-width(768px, 1024px, 600px, 838px);
+    // top: -150px;
+    // right: -720px;
+    right: responsive-value(768px, 1024px, -520px, -720px);
+    top: responsive-value(768px, 1024px, 0px, -150px);
   }
 
   @media (max-width: 768px) {
-    width: calc(100vw * 1.5);
-    height: calc(100vw / 1.136);
-    top: responsive-value(480px, 768px, 50px, -0px);
-    right: responsive-value(480px, 768px, -320px, -450px);
+    // width: calc(100vw * 1.5);
+    // height: calc(100vw / 1.136);
+    width: responsive-width(480px, 768px, 800px, 1152px);
+    // height: 838px;
+    height: responsive-width(480px, 768px, 500px, 676px);
+    top: responsive-value(480px, 768px, 100px, -0px);
+    right: responsive-value(480px, 768px, -350px, -450px);
   }
 
   @media (max-width: 480px) {
-    width: 655px;
-    height: 376px;
-    top: 100px;
-    right: -240px;
+    // width: 655px;
+    // height: 376px;
+    // top: 100px;
+    // right: -240px;
+    width: responsive-width(320px, 480px, 600px, 755px);
+    // height: 838px;
+    height: responsive-width(320px, 480px, 400px, 460px);
+    top: responsive-value(320px, 480px, 200px, 130px);
+    right: responsive-value(320px, 480px, -300px, -300px);
   }
 
-  @media (max-width: 479px) {
-    width: calc(100vw * 1.55);
-    height: calc(100vw / 1.15);
-    top: responsive-value(320px, 480px, 150px, 100px);
-    right: responsive-value(320px, 480px, -200px, -280px);
-  }
+  // @media (max-width: 479px) {
+  //   width: calc(100vw * 1.55);
+  //   height: calc(100vw / 1.15);
+  //   top: responsive-value(320px, 480px, 150px, 100px);
+  //   right: responsive-value(320px, 480px, -200px, -280px);
+  // }
 
   &:hover {
     .headlight_left {

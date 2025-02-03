@@ -27,9 +27,6 @@ const Typography = forwardRef<
     { as: Component = 'p', variant, color, sx, className, children, ...props },
     ref
   ) => {
-    if (children === 'Аккумуляторы') {
-      console.log(className);
-    }
     const classNames = `${styles.typography} ${
       variant ? styles[variant] : ''
     } ${className ? className : ''}`;

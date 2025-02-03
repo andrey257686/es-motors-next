@@ -36,7 +36,6 @@ const AccordionItem = ({ question, answer }: AccordionItemProps) => {
 };
 
 function Accordion({ items }: { items: AccordionItemProps[] }) {
-  console.log(items);
   return (
     <div className={styles.accordion}>
       {items.map((faq, index) => (
