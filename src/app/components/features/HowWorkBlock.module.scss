@@ -13,7 +13,7 @@
   top: 245px;
   left: 0px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1280px) {
     top: 220px;
     left: 0px;
   }
@@ -63,6 +63,10 @@
 
   @media (max-width: 1280px) {
     gap: 15px;
+  }
+
+  &_title {
+    color: variables.$green-color;
   }
 
   &_number {

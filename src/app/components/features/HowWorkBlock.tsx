@@ -18,7 +18,9 @@ function Step({ number, title, description }: StepProps) {
         <p>{number}</p>
       </div>
       <div className={styles.step_description}>
-        <Typography variant="subheader">{title}</Typography>
+        <Typography variant="subheader" className={styles.step_title}>
+          {title}
+        </Typography>
         <Typography variant="body">{description}</Typography>
       </div>
     </div>
@@ -45,22 +47,22 @@ export default function HowWorkBlock() {
         <Step
           number={1}
           title="Заявка"
-          description="Оставьте заявку на подбор необходимых товаров нашему специалисту, заполнив форму"
+          description="Оставьте заявку на подбор необходимых товаров нашему специалисту"
         />
         <Step
           number={2}
           title="Подбор"
-          description="Наш специалист свяжется с Вами, обсудит все детали, поможем с выбором и оформлением заказа"
+          description="Наш специалист даст обратную связь и поможет с оформлением заказа"
         />
         <Step
           number={3}
           title="Оплата"
-          description="Специалист поможет оплатить товар"
+          description="Определение сроков доставки и оплата товара"
         />
         <Step
           number={4}
           title="Получение заказа"
-          description="Получите товар в любом удобном для Вас месте"
+          description="Доставка товара любым удобным для вас способом"
         />
       </div>
       <div className={styles.request}>
@@ -83,7 +85,7 @@ export default function HowWorkBlock() {
           modalContent={<FeedbackModal />}
           className={styles.request_button}
         >
-          Заявка в 1 клик
+          Оставить заявку
         </OpenModalButton>
       </div>
     </div>
