@@ -7,8 +7,6 @@ import Accordion from '../UI/Accordion/Accordion';
 async function FAQ() {
   const questions = await getFAQ();
 
-  console.log(questions);
-
   return (
     <div className={styles.faq}>
       <div className={styles.faq_top}>

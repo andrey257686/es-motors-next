@@ -2,14 +2,15 @@ import Image from 'next/image';
 
 import { StyledText } from '../UI/StyledText/StyledText';
 import Typography from '../UI/Typography/Typography';
-// import Button from '../UI/Button/Button';
-import OpenModalButton from '../UI/Modal/OpenModalButton';
-import FeedbackModal from '../UI/FeedbackModal/FeedbackModal';
+import Button from '../UI/Button/Button';
+import Link from 'next/link';
+// import OpenModalButton from '../UI/Modal/OpenModalButton';
+// import FeedbackModal from '../UI/FeedbackModal/FeedbackModal';
 
 import styles from './HowWorkBlock.module.scss';
 import stepsArrowImage from '../../../../public/images/steps_arrow2.svg';
 import arrowRight from '../../../../public/images/arrow-right.svg';
-import { StepProps } from '@/app/types/types';
+import { Socials, StepProps } from '@/app/types/types';
 
 function Step({ number, title, description }: StepProps) {
   return (
@@ -27,7 +28,8 @@ function Step({ number, title, description }: StepProps) {
   );
 }
 
-export default function HowWorkBlock() {
+export default async function HowWorkBlock() {
+  const socials: Socials = await getSocials();
   return (
     <div className={styles.how_work}>
       <Image
@@ -72,22 +74,29 @@ export default function HowWorkBlock() {
           width={80}
           height={80}
         />
-        {/* <Button
-          typeButton="outline"
-          // fullwidth={true}
-          className={styles.request_button}
-          // style={{ width: '100%', textAlign: 'center' }}
-        >
-          Заявка в 1 клик
-        </Button> */}
-        <OpenModalButton
+        <Link href={socials.social_tg} className={styles.request_link}>
+          <Button typeButton="outline" className={styles.request_button}>
+            Оставить заявку
+          </Button>
+        </Link>
+
+        {/* <OpenModalButton
           typeButton="outline"
           modalContent={<FeedbackModal />}
           className={styles.request_button}
         >
           Оставить заявку
-        </OpenModalButton>
+        </OpenModalButton> */}
       </div>
     </div>
   );
+}
+
+export async function getSocials() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/start/social`, {
+    next: { revalidate: 86400 },
+  });
+  const socials = await res.json();
+
+  return socials;
 }
