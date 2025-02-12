@@ -31,7 +31,7 @@ function Step({ number, title, description }: StepProps) {
 export default async function HowWorkBlock() {
   const socials: Socials = await getSocials();
   return (
-    <div className={styles.how_work}>
+    <div className={styles.how_work} id="how-work">
       <Image
         src={stepsArrowImage}
         alt="Изогнутая стрелка"
@@ -74,7 +74,12 @@ export default async function HowWorkBlock() {
           width={80}
           height={80}
         />
-        <Link href={socials.social_tg} className={styles.request_link}>
+        <Link
+          href={socials.social_tg}
+          className={styles.request_link}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <Button typeButton="outline" className={styles.request_button}>
             Оставить заявку
           </Button>

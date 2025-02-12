@@ -9,6 +9,7 @@ import headlightLeftImage from '../../../../public/images/headlight-1.svg';
 import headlightRightImage from '../../../../public/images/headlight-2.svg';
 import OpenModalButton from '../UI/Modal/OpenModalButton';
 import FeedbackModal from '../UI/FeedbackModal/FeedbackModal';
+import Link from 'next/link';
 
 export default function Cover() {
   return (
@@ -33,9 +34,14 @@ export default function Cover() {
         </Typography>
       </div>
       <div>
-        <OpenModalButton typeButton="primary" modalContent={<FeedbackModal />}>
-          Оставить заявку на подбор
-        </OpenModalButton>
+        <Link href="#how-work">
+          <OpenModalButton
+            typeButton="primary"
+            modalContent={<FeedbackModal />}
+          >
+            Оставить заявку на подбор
+          </OpenModalButton>
+        </Link>
       </div>
       <div className={styles.imageContainer}>
         <Image
