@@ -1,14 +1,12 @@
 import styles from './Cover.module.scss';
 import Image from 'next/image';
 
-// import Button from '../UI/Button/Button';
 import Typography from '../UI/Typography/Typography';
 import { StyledText } from '../UI/StyledText/StyledText';
 import coverImage from '../../../../public/images/cover-auto-orig-min.png';
 import headlightLeftImage from '../../../../public/images/headlight-1.svg';
 import headlightRightImage from '../../../../public/images/headlight-2.svg';
-import OpenModalButton from '../UI/Modal/OpenModalButton';
-import FeedbackModal from '../UI/FeedbackModal/FeedbackModal';
+import Button from '../UI/Button/Button';
 import Link from 'next/link';
 
 export default function Cover() {
@@ -35,12 +33,7 @@ export default function Cover() {
       </div>
       <div>
         <Link href="#how-work">
-          <OpenModalButton
-            typeButton="primary"
-            modalContent={<FeedbackModal />}
-          >
-            Оставить заявку на подбор
-          </OpenModalButton>
+          <Button typeButton="primary">Оставить заявку на подбор</Button>
         </Link>
       </div>
       <div className={styles.imageContainer}>
