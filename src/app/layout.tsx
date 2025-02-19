@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 import './styles/globals.css';
@@ -5,6 +6,7 @@ import Header from '@/app/components/UI/Header/Header';
 import Footer from '@/app/components/UI/Footer/Footer';
 import { ModalProvider } from '@/app/context/ModalContext';
 import ClientSideToastContainer from '@/app/components/UI/Toast/Toast';
+import { Metrika } from './components/features/Metrika';
 
 const openSans = Open_Sans({
   subsets: ['cyrillic', 'latin'],
@@ -32,6 +34,9 @@ export default function RootLayout({
           {children}
           <Footer />
         </ModalProvider>
+        <Suspense>
+          <Metrika />
+        </Suspense>
       </body>
     </html>
   );
