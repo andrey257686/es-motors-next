@@ -9,6 +9,8 @@ export function Metrika() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     ym(99954508, 'hit', window.location.href);
   }, [pathName, searchParams]);
 
